@@ -1,0 +1,17 @@
+# Игнорировать все
+*
+
+# Не игнорировать .gitignore
+!.gitignore
+
+# Не игнорировать src и все содержимое
+!src/
+!src/**
+
+# Игнорировать node_modules и dist
+node_modules/
+dist/
+
+# Игнорировать package-lock.json и composer.lock
+package-lock.json
+composer.lock
