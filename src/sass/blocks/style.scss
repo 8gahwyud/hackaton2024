@@ -1,2 +1,8 @@
-
-
+@import '../base/variables';
+@import '../base/mixins';
+@import '../blocks/header';
+@import '../blocks/promo';
+.container{
+    width: 1170px;
+    margin: 0 auto;
+}

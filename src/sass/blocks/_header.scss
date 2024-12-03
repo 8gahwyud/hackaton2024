@@ -1,0 +1,31 @@
+.header{
+    padding-top: 15px;
+    display: flex;
+    justify-content:space-around;
+    // background-color: red;
+    &__logo{
+        display: block;
+        width: 250px;
+        &__img{
+            width: 100%;
+        }
+    }
+    &__btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'SF Pro Display';
+        margin-top: 25px;    
+        width: 200px;
+        height: 70px;
+        background-color: #fff;
+        border-radius: 8px;
+        border: 3px solid rgb(77, 93, 172);
+        cursor: pointer;
+        & p{
+            
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}

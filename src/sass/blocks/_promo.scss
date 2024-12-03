@@ -1,0 +1,25 @@
+.promo{
+    margin-top: 25px;
+    &__wrapper{
+        padding: 30px;
+        min-height: 500px;
+        border-radius: 8px;
+        background: rgb(77, 93, 172);
+        background: url('../../img/mask1.png') no-repeat center/100% 100%;
+        // background-size: 100% 100%;
+    }
+    &__tittle{
+        @include tittle();
+        &__wrapper{
+            width: 1000px;
+        }
+    }
+    &__descr{
+        font-size: 20px;
+        color: white;
+        &__wrapper{
+            margin-top: 13px;
+            width: 600px;
+        }
+    }
+}
