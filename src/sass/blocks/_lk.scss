@@ -1,0 +1,111 @@
+.lk{
+    margin-top: 30px;
+    &__topwrapper{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__header{
+        @include tittle();
+        color: black;
+    }
+    &__close{
+        width: 50px;
+        & a{
+            width: 100%;
+            & img{
+                width: 100%;
+            }
+        }
+    }
+    &__midlewrapper{
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+    }
+    &__photo{
+        width: 250px;
+        height: 300px;
+        border: 2px solid #C2C2C2;
+        border-radius: 10px;
+        text-align: center;
+        & img{
+            margin-top: 80px;
+            width: 50%;
+        }
+    }
+    &__columnwrapper{
+        width: 50%;
+        // padding-left: 20px;
+    }
+    &__fio{
+        width: 70%;
+        // padding-left: 20px;
+        &__obj{
+            width: 100%;
+            margin-top: 20px;
+            @include tittle('mediummedium',20px);
+            color: black;
+            border-bottom: 2px solid #C2C2C2;
+        }
+    }
+    &__points{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        margin-top: 5%;
+        background: #4D5DAC;
+        width: 70%;
+        height: 100px;
+        border-radius: 9px;
+        &__descr{
+            @include tittle('mediummedium',24px);
+            color: #C2C2C2;
+        }
+        &__amount{
+            @include tittle('mediummedium',55px);
+        }
+    }
+    &__downwrapper{
+        margin-top: 40px;
+    }
+    &__notices{
+        &__header{
+            display: flex;
+            justify-content: space-around;
+            height: 50px;
+            width: 360px;
+            & img{
+                width: 35px;
+                height: 40px;
+            }
+            & p{
+                @include tittle('mediummedium',26px);
+                color: black;
+            }
+        }
+        &__obj{
+            position: relative;
+            width: 370px;
+            height: 180px;
+            border: 3px solid #4D5DAC;
+            padding: 10px;
+            border-radius: 10px;
+            &__wrapper{
+                // width: ;
+                display: flex;
+                justify-content: space-around;
+            }
+            &__header{
+                @include tittle('mediummedium',20px);
+                color: black;
+            }
+            & img{
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+}
