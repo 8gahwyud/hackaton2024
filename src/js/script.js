@@ -76,7 +76,8 @@ operBtn.addEventListener('click',()=>{
 userBtn.addEventListener('click',()=>{
     operBtn.classList.remove('popup__btns__active');
     userBtn.classList.add('popup__btns__active');
-    updateForm()
+    updateForm();
+    eye();
     
 
 })
