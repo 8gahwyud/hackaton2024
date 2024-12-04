@@ -3,3 +3,26 @@
     font-size: $font-size;
     color: $color;
 }
+// Миксин для обертки с flex
+@mixin top-wrapper() {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  // Миксин для заголовка с параметром цвета
+  @mixin header() {
+    @include tittle(); // Убедись, что есть миксин `title`
+    color: black;    // Теперь цвет можно задавать динамически
+  }
+  
+  // Миксин для кнопки закрытия
+  @mixin close() {
+    width: 50px;
+    a {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  
