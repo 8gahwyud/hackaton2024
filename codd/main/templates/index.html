@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/blocks/style.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks/style.min.css' %}">
 </head>
 <body>
     <div class="container">
@@ -15,18 +16,18 @@
                 <h2 class="favorite__header">избранные <br> маршруты</h2>
                 <div class="favorite__close">
                     <a href="#">
-                        <img src="icons/return.png" alt="">
+                        <img src="{% static 'icons/return.png' %}" alt="">
                     </a>
                 </div>
             </div>
             <div class="favorite__menu">
                 <div class="favorite__menu__header">
                   <span>РАБОТА - СПОРТ ЗАЛ</span>
-                  <button class="favorite__menu__toggle"><img src="icons/arrowdown.png" alt="arrowdown"></button>
+                  <button class="favorite__menu__toggle"><img src="{% static 'icons/arrowdown.png' %}" alt="arrowdown"></button>
                 </div>
                 <div class="favorite__menu__content">
                     <div class="favorite__menu__map">
-                        <img src="img/map.png" alt="">
+                        <img src="{% static 'img/map.png' %}" alt="">
 
                     </div>
                 
@@ -51,7 +52,7 @@
                         <div class="favorite__menu__incidents">
                             <div class="favorite__menu__incidents__header">происшествия</div>
                             <div class="favorite__menu__incidents__descr">Не найдены</div>
-                            <img src="icons/whitewarning.png" alt="warning">
+                            <img src="{% static 'icons/whitewarning.png' %}" alt="warning">
                         </div>
                         <div class="favorite__menu__notification">
                             <div class="favorite__menu__notification__header">уведомлять</div>
@@ -67,11 +68,11 @@
             <div class="favorite__menu">
                 <div class="favorite__menu__header">
                   <span>РАБОТА - СПОРТ ЗАЛ</span>
-                  <button class="favorite__menu__toggle"><img src="icons/arrowdown.png" alt="arrowdown"></button>
+                  <button class="favorite__menu__toggle"><img src="{% static 'icons/arrowdown.png' %}" alt="arrowdown"></button>
                 </div>
                 <div class="favorite__menu__content">
                     <div class="favorite__menu__map">
-                        <img src="img/map.png" alt="">
+                        <img src="{% static 'img/map.png' %}" alt="">
 
                     </div>
                 
@@ -96,7 +97,7 @@
                         <div class="favorite__menu__incidents">
                             <div class="favorite__menu__incidents__header">происшествия</div>
                             <div class="favorite__menu__incidents__descr">Не найдены</div>
-                            <img src="icons/whitewarning.png" alt="warning">
+                            <img src="{% static 'icons/whitewarning.png' %}" alt="warning">
                         </div>
                         <div class="favorite__menu__notification">
                             <div class="favorite__menu__notification__header">уведомлять</div>
@@ -112,11 +113,11 @@
             <div class="favorite__menu">
                 <div class="favorite__menu__header">
                   <span>РАБОТА - СПОРТ ЗАЛ</span>
-                  <button class="favorite__menu__toggle"><img src="icons/arrowdown.png" alt="arrowdown"></button>
+                  <button class="favorite__menu__toggle"><img src="{% static 'icons/arrowdown.png' %}" alt="arrowdown"></button>
                 </div>
                 <div class="favorite__menu__content">
                     <div class="favorite__menu__map">
-                        <img src="img/map.png" alt="">
+                        <img src="{% static 'img/map.png' %}" alt="">
 
                     </div>
                 
@@ -141,7 +142,7 @@
                         <div class="favorite__menu__incidents">
                             <div class="favorite__menu__incidents__header">происшествия</div>
                             <div class="favorite__menu__incidents__descr">Не найдены</div>
-                            <img src="icons/whitewarning.png" alt="warning">
+                            <img src="{% static 'icons/whitewarning.png' %}" alt="warning">
                         </div>
                         <div class="favorite__menu__notification">
                             <div class="favorite__menu__notification__header">уведомлять</div>
@@ -156,6 +157,6 @@
             </div>
         </section>
     </div>
-    <script src="js/script1.js"></script>
+    <script src="{% static 'js/script1.js' %}"></script>
 </body>
 </html>

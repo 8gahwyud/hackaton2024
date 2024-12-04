@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/blocks/style.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks/style.min.css' %}">
 </head>
 <body>
     <div class="container">
@@ -15,13 +15,13 @@
                 <h2 class="lk__header">личный кабинет</h2>
                 <div class="lk__close">
                     <a href="#">
-                        <img src="icons/return.png" alt="">
+                        <img src="{% static 'icons/return.png' %}" alt="">
                     </a>
                 </div>
             </div>
             <div class="lk__midlewrapper">
                 <div class="lk__photo">
-                    <img src="icons/photo.png" alt="photo_ico" class="lk__photo__img">
+                    <img src="{% static 'icons/photo.png' %}" alt="photo_ico" class="lk__photo__img">
                 </div>
                 <div class="lk__columnwrapper">
                     <div class="lk__fio">
@@ -38,23 +38,23 @@
             <div class="lk__downwrapper">
                 <div class="lk__notices">
                     <div class="lk__notices__header">
-                        <img src="icons/bell.png" alt="bell">
+                        <img src="{% static 'icons/bell.png' %}" alt="bell">
                         <p>уведомления</p>
                     </div>
                     <div class="lk__notices__obj__wrapper">
                         <div class="lk__notices__obj">
                             <div class="lk__notices__obj__header">происшествия</div>
-                            <img src="icons/warning.png" alt="warning">
+                            <img src="{% static 'icons/warning.png' %}" alt="warning">
                         </div>
                         <div class="lk__notices__obj">
                             <div class="lk__notices__obj__header">мои обращения</div>
-                            <img src="icons/message.png" alt="message">
+                            <img src="{% static 'icons/message.png' %}" alt="message">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    <script src="js/script1.js"></script>
+    <script src="{% static 'js/script1.js' %}"></script>
 </body>
 </html>
