@@ -1,0 +1,60 @@
+.actions{
+    margin-top: 35px;
+    min-height: 600px;
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__btn{
+        position: relative;
+        border-radius: 15px;
+        & a{
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            text-decoration: none;
+            color: white;
+        }
+        &__photo{
+            @include tittle('mediummedium',23px);
+            padding: 26px 20px;
+            width: 550px;
+            height: 300px;
+            &:first-child{
+                background: url('../../img/road.png') no-repeat center/contain;
+            }
+            &:last-child{
+                background: url('../../img/trafic.png') no-repeat center/contain;
+            }
+        }
+        &__send{
+            position: relative;
+            padding: 20px 20px;
+            margin-top: 30px;
+            height: 150px;
+            background: url('../../img/mask2.png') no-repeat center/100% 100%;
+        }
+        &__tittle{
+            @include tittle('mediummedium',23px);
+        }
+        &__descr{
+            font-family: 'SF Pro Display';
+            margin-top: 20px;
+            font-size: 20px;
+            width: 300px;
+        }
+    }
+}
+.arrow {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    background: url('../../icons/arrow.png') no-repeat center/contain;
+    
+}    
+
+

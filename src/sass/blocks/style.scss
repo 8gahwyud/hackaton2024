@@ -2,7 +2,21 @@
 @import '../base/mixins';
 @import '../blocks/header';
 @import '../blocks/promo';
+@import '../blocks/actions';
+@import '../blocks/popups';
+@import '../blocks/forms';
+@import '../blocks/lk';
+body{
+    background-color: #E6E6E6;
+}
 .container{
     width: 1170px;
     margin: 0 auto;
+}
+.active{
+    display: block;
+    overflow: hidden;
+}
+.close{
+    display: none;
 }
