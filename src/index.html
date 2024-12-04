@@ -10,152 +10,85 @@
 </head>
 <body>
     <div class="container">
-        <section class="favorite">
-            <div class="favorite__topwrapper">
-                <h2 class="favorite__header">избранные <br> маршруты</h2>
-                <div class="favorite__close">
+        <header class="header">
+            <a class="header__logo"href="#">
+                <img class="header__logo__img" src="icons/logotype1.png" alt="logotype">
+            </a>
+            <div class="header__login">
+                <img src="icons/avatar.png" alt="avatar">
+                <div class="header__login__name">Вход</div>
+            </div>
+            <div class="popup__overlay close">
+                <div class="popup">
+                    <div class="popup__close"></div>
+                    <a class="header__logo"href="#">
+                        <img class="header__logo__img" src="icons/logotype1.png" alt="logotype">
+                    </a>
+                    <div class="popup__btnsWrapper">
+                        <button id="userbtn" class="popup__btns popup__btns__userbtn popup__btns__active">пользователь</button>
+                        <button id="operbtn" class="popup__btns popup__btns__operbtn">оператор</button>
+                    </div>
+                    <div class="login-form">
+                        <div class="login-form__title">Вход</div>
+                        <form action="#">
+                            <input type="email" id="email" class="login-form__input" placeholder="Почта">
+                            <div class="login-form__password">
+                                <input type="password" id="id_password" class="login-form__input" placeholder="Введите пароль">
+                                <i class="far fa-eye" id="togglePassword">
+                                    <img src="icons/eye.png" alt="eyebtn">
+                                </i>
+                            </div>
+                            <a href="#" class="login-form__forgot">Забыли пароль?</a>
+                            <button type="submit" class="login-form__button login-form__button--primary">Войти</button>
+                            <button type="button" id='goToReg'class="login-form__button login-form__button--secondary">У меня нет аккаунта</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </header>
+        <section class="promo">
+            <div class="promo__wrapper">
+                <div class="promo__tittle__wrapper">
+                    <h1 class="promo__tittle">Снижайте загруженность дорог и улучшайте <br> логистику региона</h1>
+                </div>
+                <div class="promo__descr__wrapper">
+                    <p class="promo__descr">
+                        Город без пробок — одна из самых актуальных и повсеместных проблем городов. 
+                        Пробки ведут к экономическим убыткам, ухудшают экологическую обстановку и 
+                        оказывают негативное влияние на качество жизни горожан, провоцируя стресс.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="actions">
+            <div class="actions__wrapper">
+                <div class="actions__btn actions__btn__photo">
                     <a href="#">
-                        <img src="icons/return.png" alt="">
+                        <p>смотрите <br> избранные маршруты</p>
+                        <div class="arrow"></div>
+                    </a>
+                </div>
+                <div class="actions__btn actions__btn__photo">
+                    <a href="#">
+                        Выбирайтe <br> оптимальный маршрут
+                        <div class="arrow"></div>
                     </a>
                 </div>
             </div>
-            <div class="favorite__menu">
-                <div class="favorite__menu__header">
-                  <span>РАБОТА - СПОРТ ЗАЛ</span>
-                  <button class="favorite__menu__toggle"><img src="icons/arrowdown.png" alt="arrowdown"></button>
-                </div>
-                <div class="favorite__menu__content">
-                    <div class="favorite__menu__map">
-                        <img src="img/map.png" alt="">
-
-                    </div>
-                
-                  <div class="route">
-                    <div class="favorite__menu__distance">
-                        <div class="favorite__menu__distance__circle"></div>
-                        <p>991М</p>
-                        <div class="favorite__menu__distance__circle"></div>
-                    </div>
-                    <div class="point start">
-                    </div>
-                    <div class="line">
-                    </div>
-                    <div class="point end">
-                    </div>
-                </div>
-                    <div class="favorite__menu__street__wrapper">
-                        <div class="favorite__menu__street">ул. Чапаева, 106</div>
-                        <div class="favorite__menu__street">Tiffany Blooms</div>
-                    </div>
-                    <div class="favorite__menu__botomwrapper">
-                        <div class="favorite__menu__incidents">
-                            <div class="favorite__menu__incidents__header">происшествия</div>
-                            <div class="favorite__menu__incidents__descr">Не найдены</div>
-                            <img src="icons/whitewarning.png" alt="warning">
-                        </div>
-                        <div class="favorite__menu__notification">
-                            <div class="favorite__menu__notification__header">уведомлять</div>
-                            <div class="favorite__menu__notification__descr">о происшествиях на маршруте</div>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                          </label>
-                    </div>
-              </div>
-            </div>
-            <div class="favorite__menu">
-                <div class="favorite__menu__header">
-                  <span>РАБОТА - СПОРТ ЗАЛ</span>
-                  <button class="favorite__menu__toggle"><img src="icons/arrowdown.png" alt="arrowdown"></button>
-                </div>
-                <div class="favorite__menu__content">
-                    <div class="favorite__menu__map">
-                        <img src="img/map.png" alt="">
-
-                    </div>
-                
-                  <div class="route">
-                    <div class="favorite__menu__distance">
-                        <div class="favorite__menu__distance__circle"></div>
-                        <p>991М</p>
-                        <div class="favorite__menu__distance__circle"></div>
-                    </div>
-                    <div class="point start">
-                    </div>
-                    <div class="line">
-                    </div>
-                    <div class="point end">
-                    </div>
-                </div>
-                    <div class="favorite__menu__street__wrapper">
-                        <div class="favorite__menu__street">ул. Чапаева, 106</div>
-                        <div class="favorite__menu__street">Tiffany Blooms</div>
-                    </div>
-                    <div class="favorite__menu__botomwrapper">
-                        <div class="favorite__menu__incidents">
-                            <div class="favorite__menu__incidents__header">происшествия</div>
-                            <div class="favorite__menu__incidents__descr">Не найдены</div>
-                            <img src="icons/whitewarning.png" alt="warning">
-                        </div>
-                        <div class="favorite__menu__notification">
-                            <div class="favorite__menu__notification__header">уведомлять</div>
-                            <div class="favorite__menu__notification__descr">о происшествиях на маршруте</div>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                          </label>
-                    </div>
-              </div>
-            </div>
-            <div class="favorite__menu">
-                <div class="favorite__menu__header">
-                  <span>РАБОТА - СПОРТ ЗАЛ</span>
-                  <button class="favorite__menu__toggle"><img src="icons/arrowdown.png" alt="arrowdown"></button>
-                </div>
-                <div class="favorite__menu__content">
-                    <div class="favorite__menu__map">
-                        <img src="img/map.png" alt="">
-
-                    </div>
-                
-                  <div class="route">
-                    <div class="favorite__menu__distance">
-                        <div class="favorite__menu__distance__circle"></div>
-                        <p>991М</p>
-                        <div class="favorite__menu__distance__circle"></div>
-                    </div>
-                    <div class="point start">
-                    </div>
-                    <div class="line">
-                    </div>
-                    <div class="point end">
-                    </div>
-                </div>
-                    <div class="favorite__menu__street__wrapper">
-                        <div class="favorite__menu__street">ул. Чапаева, 106</div>
-                        <div class="favorite__menu__street">Tiffany Blooms</div>
-                    </div>
-                    <div class="favorite__menu__botomwrapper">
-                        <div class="favorite__menu__incidents">
-                            <div class="favorite__menu__incidents__header">происшествия</div>
-                            <div class="favorite__menu__incidents__descr">Не найдены</div>
-                            <img src="icons/whitewarning.png" alt="warning">
-                        </div>
-                        <div class="favorite__menu__notification">
-                            <div class="favorite__menu__notification__header">уведомлять</div>
-                            <div class="favorite__menu__notification__descr">о происшествиях на маршруте</div>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider"></span>
-                          </label>
-                    </div>
-              </div>
+            
+            <div class="actions__btn actions__btn__send">
+                <a href="#">
+                    <div class="actions__btn__tittle">сообщайте о происшествиях</div>
+                    <div class="actions__btn__descr">Оператор быстро и эффективно решит возникшую проблему</div>
+                    <div class="arrow"></div>
+                </a>
             </div>
         </section>
     </div>
-    <script src="js/script1.js"></script>
+    
+       
+
+    
+    <script src="js/script.js"></script>
 </body>
 </html>
