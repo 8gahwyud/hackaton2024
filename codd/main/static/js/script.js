@@ -147,10 +147,45 @@ function postData(form1){
     })
 
 }
+async function loadData() {
+    try {
+      // Запрашиваем данные с сервера
+      const response = await fetch('auth/');
+      
+      if (response.ok) {
+        const data = await response.json(); // Получаем данные
+        // Сохраняем данные в localStorage в виде строки JSON
+        localStorage.setItem('serverData', JSON.stringify(data));
+        console.log(localStorage.getItem('serverData'))
+      } else {
+       console.log('Ошибка загрузки данных.')
+      }
+    } catch (error) {
+      console.error('Ошибка:', error);
+    }
+  }
+  // Функция для открытия страницы на бэкенде и использования сохранённых данных
+  function openBackendPage() {
+    // Получаем данные из localStorage
+    const savedData = JSON.parse(localStorage.getItem('serverData'));
+    const lkLink = document.querySelector('#lk_link');
+  
+    if (savedData) {
+      console.log('Сохраненные данные:', savedData);
+      // Перенаправляем на страницу бэкенда или используем данные в логике
+      lkLink.href = 'lk/';
+      loginBtn.removeEventListener();
+    } else {
+      console.log('Данные не найдены в localStorage');
+    }
+  }
+  
+  
 userFormsSwitcher();
 eye();
 postData(form);
-
+openBackendPage();
+loadData();
 });
 
 
