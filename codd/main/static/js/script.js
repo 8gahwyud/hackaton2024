@@ -41,7 +41,7 @@ function changeFormToReg(form){
                             <div class="login-form__password">
                                 <input type="password" id="id_password" name="password" class="login-form__input" placeholder="Введите пароль">
                                 <i class="far fa-eye" id="togglePassword">
-                                    <img src="icons/eye.png" alt="eyebtn">
+                                    <img src="/static/icons/eye.png" alt="eyebtn">
                                 </i>
                             </div>
                             <button type="submit" class="login-form__button login-form__button--primary">зарегистрироваться</button>
@@ -59,7 +59,7 @@ function changeFormToOper(form){
                             <div class="login-form__password">
                                 <input type="password" id="id_password" name="password" class="login-form__input" placeholder="Введите пароль">
                                 <i class="far fa-eye" id="togglePassword">
-                                    <img src="icons/eye.png" alt="eyebtn">
+                                    <img src="/static/icons/eye.png" alt="eyebtn">
                                 </i>
                             </div>
                             <button type="submit" class="login-form__button login-form__button--primary">начать</button>
