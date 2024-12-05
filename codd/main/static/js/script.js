@@ -131,18 +131,21 @@ function postData(form1){
             req[key]  = value
           }
           console.log(req)
-          fetch('/',{
-            method: "POST",
-            body:JSON.stringify(req),
-            headers:{
+            fetch('auth/',{
+                method: "POST",
+                body:JSON.stringify(req),
+                headers:
+                {
                 "Content-Type":"application/json"
-            }
-        })
-        .then((response) => {
-            return response.json()
-        })
-        .then(data => console.log(data))
-          form.reset();
+                }
+                })
+                .then((response) => {
+                    return response.json()
+                })
+                .then(data => console.log(data))
+                form.reset();
+
+           
           
     })
 
