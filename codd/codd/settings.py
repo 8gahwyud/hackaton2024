@@ -74,16 +74,16 @@ WSGI_APPLICATION = 'codd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "CODD",
-#         "USER": "admin",
-#         "PASSWORD": "admin",
-#         "HOST": "127.0.0.1",
-#         "PORT": "5432",
-#     }
-# }
+DATABASES = {
+    'default': {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "CODD",
+        "USER": "admin",
+        "PASSWORD": "admin",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
+}
 
 
 # Password validation

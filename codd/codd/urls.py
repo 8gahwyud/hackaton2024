@@ -6,5 +6,7 @@ from main import views
 urlpatterns = [
     path('', views.MainPage),
     path('fvp/', views.fvpPage),
-    path('admin/', admin.site.urls)
+    path('lk/', views.lk),
+    path('admin/', admin.site.urls),
+    path('auth/', views.auth)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
