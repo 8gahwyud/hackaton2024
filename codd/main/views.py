@@ -33,7 +33,6 @@ def auth(request):
         except ObjectDoesNotExist:
             print("Объект не сушествует")
         return JsonResponse({'username': user.username, 'login': user.login, 'password': user.passwd, 'points': user.points})
-    
     if (_type == 'регистрация'):
         email = json.loads(request.body)['email']
         password = json.loads(request.body)['password']
@@ -49,6 +48,20 @@ def auth(request):
         newuser = Users.objects.create(login=email,passwd=password,username=us, points=0)
         newuser.save()
         return JsonResponse({"status":"Created"})
-
-
+    if (_type == 'Авторизация'):
+        us = json.loads(request.body)['username']
+        email = json.loads(request.body)['email']
+        password = json.loads(request.body)['password']
+        try:
+            auser = Adminusers.objects.all()
+            auser = auser.filter(username=us ,login=email, password=password)
+            print(auser.count())
+            if auser.count() != 0:
+                auser = auser[0]
+            else:
+                return JsonResponse({'error': "Пользователь не зарегестрирован"})
+        except:
+            print("Объект не сушествует")
+        return JsonResponse({'username': auser.username, 'login': auser.login, 'password': auser.password, 'adminAuth':True})
+    
     

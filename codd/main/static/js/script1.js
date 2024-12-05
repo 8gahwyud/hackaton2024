@@ -7,9 +7,9 @@ document.querySelectorAll('.favorite__menu__header').forEach(function(header) {
   
       // Меняем стрелку направления
       if (content.classList.contains('favorite__menu__content--active')) {
-        toggle.innerHTML = '<img src="static/icons/arrowup.png" alt="arrowup">'; // Стрелка вверх
+        toggle.innerHTML = '<img src="../static/icons/arrowup.png" alt="arrowup">'; // Стрелка вверх
       } else {
-        toggle.innerHTML = '<img src="static/icons/arrowdown.png" alt="arrowdown">'; // Стрелка вниз
+        toggle.innerHTML = '<img src="../static/icons/arrowdown.png" alt="arrowdown">'; // Стрелка вниз
       }
     });
   });
