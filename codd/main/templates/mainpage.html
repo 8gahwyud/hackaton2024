@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks/style.min.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a class="header__logo"href="#">
+                <img class="header__logo__img" src="{% static 'icons/logotype1.png' %}" alt="logotype">
+            </a>
+            <div class="header__login">
+                    <img src="{% static 'icons/avatar.png' %}" alt="avatar">
+                    <div class="header__login__name">Вход</div>
+            </div>
+            <div class="popup__overlay close">
+                <div class="popup">
+                    <div class="popup__close"></div>
+                    <a class="header__logo"href="#">
+                        <img class="header__logo__img" src="{% static 'icons/logotype1.png' %}" alt="logotype">
+                    </a>
+                    <div class="popup__btnsWrapper">
+                        <button id="userbtn" class="popup__btns popup__btns__userbtn popup__btns__active">пользователь</button>
+                        <button id="operbtn" class="popup__btns popup__btns__operbtn">оператор</button>
+                    </div>
+                    <div class="login-form">
+                        <div class="login-form__title">Вход</div>
+                        <form id="form" action="#">
+                            <input type="email" id="email" name="email" class="login-form__input" placeholder="Почта">
+                            <div class="login-form__password">
+                                <input type="password" id="id_password" name="password" class="login-form__input" placeholder="Введите пароль">
+                                <i class="far fa-eye" id="togglePassword">
+                                    <img src="{% static 'icons/eye.png' %}" alt="eyebtn">
+                                </i>
+                            </div>
+                            <a href="#" class="login-form__forgot">Забыли пароль?</a>
+                            <button type="submit" class="login-form__button login-form__button--primary">Войти</button>
+                            <button type="button" id='goToReg'class="login-form__button login-form__button--secondary">У меня нет аккаунта</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </header>
+        <section class="promo">
+            <div class="promo__wrapper">
+                <div class="promo__tittle__wrapper">
+                    <h1 class="promo__tittle">Снижайте загруженность дорог и улучшайте <br> логистику региона</h1>
+                </div>
+                <div class="promo__descr__wrapper">
+                    <p class="promo__descr">
+                        Город без пробок — одна из самых актуальных и повсеместных проблем городов. 
+                        Пробки ведут к экономическим убыткам, ухудшают экологическую обстановку и 
+                        оказывают негативное влияние на качество жизни горожан, провоцируя стресс.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="actions">
+            <div class="actions__wrapper">
+                <div class="actions__btn actions__btn__photo">
+                    <a href="fvp/">
+                        <p>смотрите <br> избранные маршруты</p>
+                        <div class="arrow"></div>
+                    </a>
+                </div>
+                <div class="actions__btn actions__btn__photo">
+                    <a href="#">
+                        Выбирайтe <br> оптимальный маршрут
+                        <div class="arrow"></div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="actions__btn actions__btn__send">
+                <a href="#">
+                    <div class="actions__btn__tittle">сообщайте о происшествиях</div>
+                    <div class="actions__btn__descr">Оператор быстро и эффективно решит возникшую проблему</div>
+                    <div class="arrow"></div>
+                </a>
+            </div>
+        </section>
+    </div>
+    
+       
+
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+@import '../base/mixins';
+.favorite{
+    margin-top: 30px;
+    padding-bottom: 30px;
+    &__topwrapper{
+        @include top-wrapper();
+    }
+    &__header{
+        @include header();
+    }
+    &__close{
+        @include close();
+    }
+    &__menu {
+        margin-top: 30px;
+        width: 100%; /* Ширина контейнера меню */
+        position: relative;
+        // background-color: #f5f5f5; /* Цвет фона */
+        // border-top: 2px solid #C2C2C2;
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50%; /* Длина бордера */
+            border-top: 2px solid #C2C2C2;
+        }
+        &__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #3c54a1; /* Цвет текста */
+            cursor: pointer;
+            position: relative;
+            & span{
+                @include tittle($font-family: 'mediummedium', $font-size: 26px);
+                color: #4D5DAC;
+            }
+          }
+          &__toggle {
+            background: none;
+            border: none;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            & img{
+                width: 100%;
+            }
+          }
+          &__content {
+            display: none; /* Скрываем содержимое по умолчанию */
+            position: relative;
+            // padding: 0 20px;
+            // background-color: #fff;
+            &--active {
+                display: block; /* Показываем содержимое, когда меню активно */
+              }
+          }
+          &__map{
+            margin: 0 auto;
+            margin-top: 5px;
+            width: 70%;
+            height: 300px;
+            border-radius: 20px;
+            & img{
+                width: 100%;
+                height: 100%;   
+            }
+          }
+          &__street{
+            font-family: 'SF Pro Display';
+            font-size: 26px;
+            &__wrapper{
+                display: flex;
+                justify-content: space-between;
+            }
+          }
+          &__distance{
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            top: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            & p{
+                @include tittle($font-family: 'mediummedium', $font-size: 17px);
+                color: #343434;
+            }
+            &__circle{
+                width: 10px;
+                height: 10px;
+                background-color: #4a5ac8; /* Синий цвет */
+                border-radius: 50%;
+                margin: 7px 8px 0 8px; /* Отступ между точками и текстом */
+            }
+          }
+          &__botomwrapper{
+            display: flex;
+            flex-direction: row;
+          }
+          &__incidents{
+            position: relative;
+            margin-top: 15px;
+            width: 500px;
+            height: 90px;
+            background-color: #4D5DAC;
+            border-radius: 12px;
+            padding: 10px;
+            &__header{
+                @include tittle($font-family: 'mediummedium', $font-size: 25px);
+            }
+            &__descr{
+                font-family: 'SF Pro Display';
+                font-size: 18px;
+                color: white;
+                // margin-top: 10px;
+            }
+            & img{
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                width: 30px;
+                height: 30px;
+            }
+          }
+          &__notification{
+            width: 200px;
+            position: relative;
+            padding: 20px;
+            // margin-left: 20px;
+            &__header{
+                @include tittle($font-family: 'mediummedium', $font-size: 22px);
+                color: #343434;
+            }
+            &__descr{
+                position: absolute;
+                left:70px;
+                width: 200px;
+                font-family: 'SF Pro Display';
+                font-size: 14px;
+                color: #A7A7A7;
+                transform: scaleX(1.5);
+            }
+          }
+      }
+}
+
+
+/* Общий контейнер */
+.route {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    // padding: 10px;
+  }
+  
+  /* Точки начала и конца */
+  .point {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .point::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .start::before {
+    background-color: #4a5ac8; /* Синий цвет начала */
+  }
+  
+  .end::before {
+    background-color: #2d2d2d; /* Черный цвет конца */
+  }
+  
+  .point span {
+    margin-left: 8px;
+    font-size: 14px;
+  }
+  
+  /* Линия с расстоянием */
+  .line {
+    position: relative;
+    flex-grow: 1;
+    height: 4px;
+    background: linear-gradient(90.00deg, rgb(77, 93, 172),rgb(52, 52, 52) 100%);
+    border-radius: 9px;
+    margin: 0 32px;
+  }
+  
+  /* Расстояние */
+  .distance {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #e0e0e0;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+  
+
+  /* Стили для тумблера */
+.switch {
+    top: 33px;
+    left: 150px;
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 38px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #C2C2C2;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: #4D5DAC;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #343434;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(32px);
+  }
+  

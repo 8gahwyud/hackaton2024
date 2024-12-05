@@ -1,29 +1,28 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
-    <link rel="stylesheet" href="{% static 'css/blocks/style.min.css' %}">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/blocks/style.min.css">
 </head>
 <body>
     <div class="container">
         <header class="header">
             <a class="header__logo"href="#">
-                <img class="header__logo__img" src="{% static 'icons/logotype1.png' %}" alt="logotype">
+                <img class="header__logo__img" src="icons/logotype1.png" alt="logotype">
             </a>
             <div class="header__login">
-                <img src="{% static 'icons/avatar.png' %}" alt="avatar">
+                <img src="icons/avatar.png" alt="avatar">
                 <div class="header__login__name">Вход</div>
             </div>
             <div class="popup__overlay close">
                 <div class="popup">
                     <div class="popup__close"></div>
                     <a class="header__logo"href="#">
-                        <img class="header__logo__img" src="{% static 'icons/logotype1.png' %}" alt="logotype">
+                        <img class="header__logo__img" src="icons/logotype1.png" alt="logotype">
                     </a>
                     <div class="popup__btnsWrapper">
                         <button id="userbtn" class="popup__btns popup__btns__userbtn popup__btns__active">пользователь</button>
@@ -31,12 +30,12 @@
                     </div>
                     <div class="login-form">
                         <div class="login-form__title">Вход</div>
-                        <form id="form" action="#">
-                            <input type="email" id="email" name="email" class="login-form__input" placeholder="Почта">
+                        <form action="#">
+                            <input type="email" id="email" class="login-form__input" placeholder="Почта">
                             <div class="login-form__password">
-                                <input type="password" id="id_password" name="password" class="login-form__input" placeholder="Введите пароль">
+                                <input type="password" id="id_password" class="login-form__input" placeholder="Введите пароль">
                                 <i class="far fa-eye" id="togglePassword">
-                                    <img src="{% static 'icons/eye.png' %}" alt="eyebtn">
+                                    <img src="icons/eye.png" alt="eyebtn">
                                 </i>
                             </div>
                             <a href="#" class="login-form__forgot">Забыли пароль?</a>
@@ -90,6 +89,6 @@
        
 
     
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

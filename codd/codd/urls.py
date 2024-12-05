@@ -5,5 +5,6 @@ from django.conf.urls.static import static
 from main import views
 urlpatterns = [
     path('', views.MainPage),
+    path('fvp/', views.fvpPage),
     path('admin/', admin.site.urls)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
