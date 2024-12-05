@@ -1,3 +1,4 @@
+window.addEventListener('DOMContentLoaded', () =>{
 //глазик на форме с паролем
 function eye(){
     const togglePassword = document.querySelector('#togglePassword');
@@ -34,11 +35,11 @@ loginBtn.addEventListener('click',()=>{
 function changeFormToReg(form){
     form.innerHTML = `
                             <div class="login-form__title">регистрация</div>
-                        <form action="#">
-                            <input type="username" id="username" class="login-form__input" placeholder="Имя">
-                            <input type="email" id="email" class="login-form__input" placeholder="Почта">
+                        <form id="form" action="#">
+                            <input type="username" id="username" name="username" class="login-form__input" placeholder="Имя">
+                            <input type="email" id="email" name="email" class="login-form__input" placeholder="Почта">
                             <div class="login-form__password">
-                                <input type="password" id="id_password" class="login-form__input" placeholder="Введите пароль">
+                                <input type="password" id="id_password" name="password" class="login-form__input" placeholder="Введите пароль">
                                 <i class="far fa-eye" id="togglePassword">
                                     <img src="icons/eye.png" alt="eyebtn">
                                 </i>
@@ -52,11 +53,11 @@ function changeFormToReg(form){
 function changeFormToOper(form){
     form.innerHTML = `
                             <div class="login-form__title">Авторизация</div>
-                        <form action="#">
-                            <input type="username" id="username" class="login-form__input" placeholder="Имя">
-                            <input type="email" id="email" class="login-form__input" placeholder="Почта">
+                        <form id="form" action="#">
+                            <input type="username" id="username" name="username" class="login-form__input" placeholder="Имя">
+                            <input type="email" id="email" name="email" class="login-form__input" placeholder="Почта">
                             <div class="login-form__password">
-                                <input type="password" id="id_password" class="login-form__input" placeholder="Введите пароль">
+                                <input type="password" id="id_password" name="password" class="login-form__input" placeholder="Введите пароль">
                                 <i class="far fa-eye" id="togglePassword">
                                     <img src="icons/eye.png" alt="eyebtn">
                                 </i>
@@ -67,11 +68,13 @@ function changeFormToOper(form){
 }
 const originalContent = formWrapper.innerHTML;
 const userBtn = document.querySelector('#userbtn'),
-    operBtn = document.querySelector('#operbtn');
+    operBtn = document.querySelector('#operbtn'),
+    form = document.querySelector('#form');
 operBtn.addEventListener('click',()=>{
     userBtn.classList.remove('popup__btns__active');
     operBtn.classList.add('popup__btns__active');
-    updateForm()
+    updateForm();
+
 })
 userBtn.addEventListener('click',()=>{
     operBtn.classList.remove('popup__btns__active');
@@ -89,6 +92,9 @@ function updateForm() {
     } else if (operBtn.classList.contains('popup__btns__active')) {
         changeFormToOper(formWrapper)
         eye();
+        const form = document.querySelector('#form');
+        postData(form);
+        
     }
   }
 
@@ -100,12 +106,53 @@ function userFormsSwitcher(){
         if (event.target.id === 'goToLog') {
             formWrapper.innerHTML = originalContent; 
             eye();
+            const form = document.querySelector('#form');
+            postData(form);
+           
         } else if (event.target.id === 'goToReg') {
             changeFormToReg(formWrapper); 
             eye();
+            const form = document.querySelector('#form');
+            postData(form)
 
         }
     });
 }
+
+function postData(form1){
+    form1.addEventListener('submit', (e) =>{
+        e.preventDefault();
+        const type = document.querySelector(".login-form__title")
+        const req = {
+            type: type.innerHTML,
+        }
+        const formData = new FormData(form1);
+        for (var [key, value] of formData.entries()) {
+            req[key]  = value
+          }
+          console.log(req)
+        //   fetch(url,{
+        //     method: "POST",
+        //     body:JSON.stringify(formData),
+        //     headers:{
+        //         "Content-Type":"application/json"
+        //     }
+        // })
+        // .then((response) => {
+        //     return response.json()
+        // })
+        // .then(data => console.log(data))
+        //   form.reset();
+          
+    })
+
+}
 userFormsSwitcher();
 eye();
+postData(form);
+
+});
+
+
+
+
