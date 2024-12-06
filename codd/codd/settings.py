@@ -80,8 +80,8 @@ DATABASES = {
         "NAME": "CODD",
         "USER": "admin",
         "PASSWORD": "admin",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "HOST": "0.tcp.eu.ngrok.io",
+        "PORT": "14571",
     }
 }
 
