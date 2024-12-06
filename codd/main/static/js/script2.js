@@ -6,7 +6,7 @@ document.querySelector('.userForm__form').addEventListener('submit', async (even
     const data = Object.fromEntries(formData.entries());
 
     try {
-        const response = await fetch('operform/', { 
+        const response = await fetch('', { 
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json', 
