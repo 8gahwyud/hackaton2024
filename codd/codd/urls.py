@@ -8,5 +8,6 @@ urlpatterns = [
     path('fvp/', views.fvpPage),
     path('lk/', views.lk),
     path('admin/', admin.site.urls),
+    path('operform/', views.operform),
     path('auth/', views.auth)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

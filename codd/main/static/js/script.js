@@ -121,7 +121,7 @@ function userFormsSwitcher(){
         }
     });
 }
-
+// localStorage.clear();
 function postData(form1) {
     form1.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -147,7 +147,9 @@ function postData(form1) {
         .then(data => {
             console.log(data);
             // Сохранение данных в localStorage
-            // localStorage.setItem('user', JSON.stringify(data));
+            // localStorage.clear();
+            localStorage.setItem('user', JSON.stringify(data));
+            location.reload()
         })
         .catch(error => {
             console.error('Ошибка:', error);

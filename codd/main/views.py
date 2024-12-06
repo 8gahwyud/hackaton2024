@@ -11,6 +11,10 @@ def MainPage(request):
 @csrf_exempt
 def fvpPage(request):
     return render(request, 'favPath.html')
+
+def operform(request):
+    return render(request,'operform.html')
+
 def lk(request):
     return render(request, 'lk.html')
 @csrf_exempt      
