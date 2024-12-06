@@ -15,7 +15,8 @@ def operform(request):
     if(request.method == 'GET'):
         return render(request,'operform.html')
     if(request.method == 'POST'):
-        pass
+        print(json.loads(request.body))
+        return JsonResponse({'status':200})
 
 def lk(request):
     return render(request, 'lk.html')
