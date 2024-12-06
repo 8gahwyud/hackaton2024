@@ -24,7 +24,20 @@ def operform(request):
         newreq.save()
         return JsonResponse({'status':200})
 def pickpath(request):
-    return render(request, 'pickpath.html')
+    if(request.method == 'GET'):
+        return render(request, 'pickpath.html')
+    if(request.method == 'POST'):
+        body = json.loads(request.body)
+        try:
+            startpoint = body['startPoint']
+            endpoint = body['endPoint']
+            pathname = body['pathName']
+        except:
+            return JsonResponse({'error': 'cant add to db'})
+        newpath = Saveduserpath.objects.create(userid=Users.objects.get(userid=1), startpoint=startpoint, endpoint=endpoint, pathname=pathname, notify=0)
+        newpath.save()
+        return JsonResponse({'status':200})
+
 def lk(request):
     return render(request, 'lk.html')
 @csrf_exempt      
