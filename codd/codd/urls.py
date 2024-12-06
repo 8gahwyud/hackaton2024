@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.MainPage),
     path('fvp/', views.fvpPage),
     path('lk/', views.lk),
+    path('pickpath/', views.pickpath),
     path('admin/', admin.site.urls),
     path('operform/', views.operform),
     path('auth/', views.auth)

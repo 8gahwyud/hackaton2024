@@ -17,7 +17,8 @@ def operform(request):
     if(request.method == 'POST'):
         print(json.loads(request.body))
         return JsonResponse({'status':200})
-
+def pickpath(request):
+    return render(request, 'pickpath.html')
 def lk(request):
     return render(request, 'lk.html')
 @csrf_exempt      

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blocks/style.min.css' %}">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=fa4e0204-375d-41fa-935d-6987b437384c&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <section class="pickPath">
+            <div class="pickPath__topwrapper">
+                <h2 class="pickPath__header">оптимальный маршрут</h2>
+                <div class="pickPath__close">
+                    <a href="#">
+                        <img src="icons/return.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="custom-controls">
+                <button id="clearRoute">Очистить точки</button>
+            </div>
+            <div id="map" class="pickPath__map">
+                <div class="pickPath__map__footer">
+                    <div class="pickPath__map__imgwrapper">
+                        <img src="{% static 'icons/car.png' %}" alt="">
+                        <span class="pickPath__map__imgwrapper__mincount">0</span> мин
+                    </div>
+                    <div class="pickPath__map__footer__workload">
+                        уровень <br> загруженности: <span class="pickPath__map__footer__workload__count">0</span>
+                    </div>
+                    <button class="pickPath__map__footer__favoritebtn type=" type="submit">добавить в избранное</button>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script src="{% static 'js/script3.js' %}"></script>
+</body>
+</html>
