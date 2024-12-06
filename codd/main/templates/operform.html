@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/blocks/style.min.css">
+</head>
+<body>
+    <div class="container">
+        <section class="userForm">
+            <div class="userForm__topwrapper">
+                <h2 class="userForm__header">сообщение <br> оператору </h2>
+                <div class="userForm__close">
+                    <a href="#">
+                        <img src="icons/return.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="userForm__formWrapper">
+                <form action="#" class="userForm__form">
+                    <textarea 
+                    id="descr" 
+                    name="descr" 
+                    class="login-form__input userForm__form__descr" 
+                    placeholder="Опишите проблему"></textarea>
+                    <div class="userForm__form__wrapper">
+                        <input type="email" id="email" name="email" class="login-form__input userForm__form__adress" placeholder="Адресс происшествия">
+                        <div class="userForm__form__radiowwrapper">
+                            <label class="userForm__form__radiowwrapper__item">
+                              <input type="radio" name="issue" value="accident"> ДТП
+                            </label>
+                            <label class="userForm__form__radiowwrapper__item">
+                              <input type="radio" name="issue" value="traffic"> Пробка
+                            </label>
+                            <label class="userForm__form__radiowwrapper__item"> 
+                              <input type="radio" name="issue" value="traffic-light"> Неработающий светофор
+                            </label>
+                            <br>
+                            <label class="userForm__form__radiowwrapper__item">
+                              <input type="radio" name="issue" value="roadworks"> Дорожные работы
+                            </label>
+                            <label class="userForm__form__radiowwrapper__item">
+                              <input type="radio" name="issue" value="other"> Другое
+                            </label>
+                            <button type="submit" class="login-form__button userForm__form__radiowwrapper__submit">отправить</button>
+                          </div>
+                          <button type="button" id='goToReg'class="login-form__button userForm__form__radiowwrapper__secondbtn">У меня нет аккаунта</button>
+                    </div>
+                      
+                </form>
+
+            </div>
+        </section>
+    </div>
+    <script src="js/script1.js"></script>
+</body>
+</html>
