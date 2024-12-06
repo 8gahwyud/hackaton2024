@@ -11,6 +11,21 @@ function init() {
         controls: ['searchControl', 'typeSelector', 'zoomControl', 'trafficControl']
     });
 
+    const timeElement = document.querySelector(".pickPath__map__imgwrapper__mincount");
+    const workloadElement = document.querySelector(".pickPath__map__footer__workload__count");
+
+    // Функция для вывода уровня загруженности города
+    function logTrafficLevel() {
+        const trafficProvider = new ymaps.traffic.provider.Actual();
+        trafficProvider.state.events.add('change', function () {
+            const trafficLevel = trafficProvider.state.get('level');
+            const validTrafficLevel = trafficLevel != null ? Math.floor(trafficLevel) : 0; // Проверка на null
+            console.log(`Текущий уровень загруженности города: ${validTrafficLevel}/10`);
+            workloadElement.textContent = validTrafficLevel; // Обновляем значение на странице
+        });
+        trafficProvider.setMap(map);
+    }
+
     // Функция для добавления точки
     function addPoint(coords, type) {
         const placemark = new ymaps.Placemark(coords, {}, {
@@ -37,12 +52,20 @@ function init() {
                 map.geoObjects.remove(route); // Удаляем старый маршрут
             }
             // Создаем новый маршрут с учетом пробок
-            route = ymaps.route([startPoint, endPoint], {
+            ymaps.route([startPoint, endPoint], {
                 mapStateAutoApply: true,
                 traffic: true // Включаем учет пробок
             }).then(function (r) {
-                map.geoObjects.add(r);
-                console.log("Маршрут с пробками построен:", r.getPaths());
+                route = r;
+                map.geoObjects.add(route);
+
+                // Вывод информации о времени маршрута
+                const timeWithTraffic = Math.round(route.getJamsTime() / 60); // время в минутах
+                const timeWithoutTraffic = Math.round(route.getTime() / 60); // время без пробок
+                console.log(`Маршрут построен. Время в пути: ${timeWithTraffic} мин (с пробками), ${timeWithoutTraffic} мин (без пробок).`);
+
+                // Обновляем значение времени на странице
+                timeElement.textContent = timeWithTraffic;
             });
         }
     }
@@ -76,5 +99,55 @@ function init() {
             map.geoObjects.remove(route);
         }
         console.log("Точки и маршрут очищены");
+
+        // Сброс значений на странице
+        timeElement.textContent = "0";
+        workloadElement.textContent = "0";
     });
+
+    // Логируем уровень загруженности города при запуске
+    logTrafficLevel();
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('form');
+    const nameInput = document.getElementById('namePath');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Отмена стандартной отправки формы
+
+        // Проверяем наличие координат
+        if (!startPoint || !endPoint) {
+            alert("Укажите начальную и конечную точки маршрута!");
+            return;
+        }
+
+        // Подготовка данных для отправки
+        const data = {
+            pathName: nameInput.value.trim(), // Имя маршрута из поля ввода
+            startPoint: startPoint,          // Координаты начальной точки
+            endPoint: endPoint               // Координаты конечной точки
+        };
+
+        // Отправка данных на сервер
+        fetch('', { // Укажите URL вашего обработчика на бэкенде
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("Маршрут успешно сохранен!");
+                alert("Маршрут добавлен в избранное!");
+                form.reset(); // Сброс формы
+            } else {
+                throw new Error("Ошибка при сохранении маршрута");
+            }
+        })
+        .catch(error => {
+            // console.error(error);
+            alert("Не удалось сохранить маршрут. Попробуйте позже.");
+        });
+    });
+});

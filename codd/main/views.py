@@ -23,6 +23,7 @@ def operform(request):
         newreq = Userrequests.objects.create(userid=Users.objects.get(userid=1),description=descr,whatheppens=issue,address=adress,imageaddress='img.img',geolocation='geo')
         newreq.save()
         return JsonResponse({'status':200})
+@csrf_exempt
 def pickpath(request):
     if(request.method == 'GET'):
         return render(request, 'pickpath.html')
