@@ -15,7 +15,13 @@ def operform(request):
     if(request.method == 'GET'):
         return render(request,'operform.html')
     if(request.method == 'POST'):
-        print(json.loads(request.body))
+        body = json.loads(request.body)
+        print(body)
+        descr = body['descr']
+        adress = body['descrq']
+        issue = body['issue']
+        newreq = Userrequests.objects.create(userid=Users.objects.get(userid=1),description=descr,whatheppens=issue,address=adress,imageaddress='img.img',geolocation='geo')
+        newreq.save()
         return JsonResponse({'status':200})
 def pickpath(request):
     return render(request, 'pickpath.html')
