@@ -41,7 +41,7 @@ function changeFormToReg(form){
                             <div class="login-form__password">
                                 <input type="password" id="id_password" name="password" class="login-form__input" placeholder="Введите пароль">
                                 <i class="far fa-eye" id="togglePassword">
-                                    <img src="icons/eye.png" alt="eyebtn">
+                                    <img src="/static/icons/eye.png" alt="eyebtn">
                                 </i>
                             </div>
                             <button type="submit" class="login-form__button login-form__button--primary">зарегистрироваться</button>
@@ -59,7 +59,7 @@ function changeFormToOper(form){
                             <div class="login-form__password">
                                 <input type="password" id="id_password" name="password" class="login-form__input" placeholder="Введите пароль">
                                 <i class="far fa-eye" id="togglePassword">
-                                    <img src="icons/eye.png" alt="eyebtn">
+                                    <img src="/static/icons/eye.png" alt="eyebtn">
                                 </i>
                             </div>
                             <button type="submit" class="login-form__button login-form__button--primary">начать</button>
@@ -119,76 +119,53 @@ function userFormsSwitcher(){
     });
 }
 
-function postData(form1){
-    form1.addEventListener('submit', (e) =>{
+function postData(form1) {
+    form1.addEventListener('submit', (e) => {
         e.preventDefault();
-        const type = document.querySelector(".login-form__title")
+        const type = document.querySelector(".login-form__title");
         const req = {
             type: type.innerHTML,
-        }
+        };
         const formData = new FormData(form1);
         for (var [key, value] of formData.entries()) {
-            req[key]  = value
-          }
-          console.log(req)
-            fetch('auth/',{
-                method: "POST",
-                body:JSON.stringify(req),
-                headers:
-                {
-                "Content-Type":"application/json"
-                }
-                })
-                .then((response) => {
-                    return response.json()
-                })
-                .then(data => console.log(data))
-                form.reset();
+            req[key] = value;
+        }
+        console.log(req);
+        fetch('auth/', {
+            method: "POST",
+            body: JSON.stringify(req),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            // Сохранение данных в localStorage
+            localStorage.setItem('user', JSON.stringify(data));
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+        });
 
-           
-          
-    })
-
+        form1.reset();
+    });
 }
-async function loadData() {
-    try {
-      // Запрашиваем данные с сервера
-      const response = await fetch('auth/');
-      
-      if (response.ok) {
-        const data = await response.json(); // Получаем данные
-        // Сохраняем данные в localStorage в виде строки JSON
-        localStorage.setItem('serverData', JSON.stringify(data));
-        console.log(localStorage.getItem('serverData'))
-      } else {
-       console.log('Ошибка загрузки данных.')
-      }
-    } catch (error) {
-      console.error('Ошибка:', error);
+const userData = JSON.parse(localStorage.getItem('user'));
+    if(userData){
+        console.log('asda');
+        console.log(userData);
+    }else{
+        console.log('нету тут нихуя')
     }
-  }
-  // Функция для открытия страницы на бэкенде и использования сохранённых данных
-  function openBackendPage() {
-    // Получаем данные из localStorage
-    const savedData = JSON.parse(localStorage.getItem('serverData'));
-    const lkLink = document.querySelector('#lk_link');
-  
-    if (savedData) {
-      console.log('Сохраненные данные:', savedData);
-      // Перенаправляем на страницу бэкенда или используем данные в логике
-      lkLink.href = 'lk/';
-      loginBtn.removeEventListener();
-    } else {
-      console.log('Данные не найдены в localStorage');
-    }
-  }
-  
+
   
 userFormsSwitcher();
 eye();
 postData(form);
-// openBackendPage();
-// loadData();
+
 });
 
 

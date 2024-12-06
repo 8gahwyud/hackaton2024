@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class AcceptedRequests(models.Model):
     accreqid = models.AutoField(db_column='AccReqID', primary_key=True)  # Field name made lowercase.
     userreqid = models.ForeignKey('Userrequests', models.DO_NOTHING, db_column='UserReqID')  # Field name made lowercase.
@@ -14,7 +14,7 @@ class AcceptedRequests(models.Model):
 class Adminusers(models.Model):
     adminid = models.AutoField(db_column='AdminID', primary_key=True)  # Field name made lowercase.
     username = models.CharField(db_column='UserName', max_length=255)  # Field name made lowercase.
-    login = models.CharField(db_column='Login', max_length=15)  # Field name made lowercase.
+    login = models.CharField(db_column='Login', max_length=50)  # Field name made lowercase.
     password = models.CharField(db_column='Password', max_length=20)  # Field name made lowercase.
 
     class Meta:
@@ -75,7 +75,7 @@ class Userrequests(models.Model):
 class Users(models.Model):
     userid = models.AutoField(db_column='UserID', primary_key=True)  # Field name made lowercase.
     username = models.CharField(db_column='UserName', max_length=255)  # Field name made lowercase.
-    login = models.CharField(db_column='Login', max_length=15)  # Field name made lowercase.
+    login = models.CharField(db_column='Login', max_length=50)  # Field name made lowercase.
     passwd = models.CharField(db_column='Passwd', max_length=20)  # Field name made lowercase.
     points = models.BigIntegerField(db_column='Points')  # Field name made lowercase.
 

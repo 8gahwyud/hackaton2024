@@ -80,7 +80,7 @@ DATABASES = {
         "NAME": "CODD",
         "USER": "admin",
         "PASSWORD": "admin",
-        "HOST": "6.tcp.eu.ngrok.io", "PORT": "15615",
+        "HOST": "0.tcp.eu.ngrok.io", "PORT": "12040",
     }
 }
 
@@ -122,7 +122,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    ".\main\static"
+    ".\main\static",
 ]
 
 # Default primary key field type
