@@ -59,7 +59,7 @@ def auth(request):
                 return JsonResponse({'error': "Пользователь не зарегестрирован"})
         except ObjectDoesNotExist:
             print("Объект не сушествует")
-        return JsonResponse({'username': user.username, 'login': user.login, 'password': user.passwd, 'points': user.points})
+        return JsonResponse({'userid': user.userid,'username': user.username, 'login': user.login, 'password': user.passwd, 'points': user.points})
     if (_type == 'регистрация'):
         email = json.loads(request.body)['email']
         password = json.loads(request.body)['password']
@@ -89,6 +89,6 @@ def auth(request):
                 return JsonResponse({'error': "Пользователь не зарегестрирован"})
         except:
             print("Объект не сушествует")
-        return JsonResponse({'username': auser.username, 'login': auser.login, 'password': auser.password, 'adminAuth':True})
+        return JsonResponse({'userid': auser.adminid,'username': auser.username, 'login': auser.login, 'password': auser.password, 'adminAuth':True})
     
     
