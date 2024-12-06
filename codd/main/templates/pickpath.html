@@ -22,9 +22,6 @@
                     </a>
                 </div>
             </div>
-            <div class="custom-controls">
-                <button id="clearRoute">Очистить точки</button>
-            </div>
             <div id="map" class="pickPath__map">
                 <div class="pickPath__map__footer">
                     <div class="pickPath__map__imgwrapper">
@@ -34,7 +31,11 @@
                     <div class="pickPath__map__footer__workload">
                         уровень <br> загруженности: <span class="pickPath__map__footer__workload__count">0</span>
                     </div>
-                    <button class="pickPath__map__footer__favoritebtn type=" type="submit">добавить в избранное</button>
+                    <form id="form" class="pickPath__map__footer__form" action="#" >
+                        <input type="text" id="namePath" name="pathName" class="login-form__input pickPath__map__footer__input " placeholder="введите название маршрута">
+                        <button class="pickPath__map__footer__favoritebtn"  type="submit">добавить в избранное</button>
+                       
+                    </form>
                 </div>
             </div>
 

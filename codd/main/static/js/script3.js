@@ -108,3 +108,46 @@ function init() {
     // Логируем уровень загруженности города при запуске
     logTrafficLevel();
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('form');
+    const nameInput = document.getElementById('namePath');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Отмена стандартной отправки формы
+
+        // Проверяем наличие координат
+        if (!startPoint || !endPoint) {
+            alert("Укажите начальную и конечную точки маршрута!");
+            return;
+        }
+
+        // Подготовка данных для отправки
+        const data = {
+            pathName: nameInput.value.trim(), // Имя маршрута из поля ввода
+            startPoint: startPoint,          // Координаты начальной точки
+            endPoint: endPoint               // Координаты конечной точки
+        };
+
+        // Отправка данных на сервер
+        fetch('', { // Укажите URL вашего обработчика на бэкенде
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("Маршрут успешно сохранен!");
+                alert("Маршрут добавлен в избранное!");
+                form.reset(); // Сброс формы
+            } else {
+                throw new Error("Ошибка при сохранении маршрута");
+            }
+        })
+        .catch(error => {
+            // console.error(error);
+            alert("Не удалось сохранить маршрут. Попробуйте позже.");
+        });
+    });
+});
