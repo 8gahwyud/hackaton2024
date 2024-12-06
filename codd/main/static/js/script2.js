@@ -1,28 +1,34 @@
 document.querySelector('.userForm__form').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+    event.preventDefault();
 
     const formData = new FormData(event.target);
-
     const data = Object.fromEntries(formData.entries());
 
     try {
-        const response = await fetch('operform/', { 
-            method: 'POST', 
+        const response = await fetch('operform/', {
+            method: 'POST',
             headers: {
-                'Content-Type': 'application/json', 
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data), 
+            body: JSON.stringify(data),
         });
 
-        if (response.ok) {
+        // Проверяем статус ответа
+        if (!response.ok) {
+            throw new Error(`Ошибка сервера: ${response.status} ${response.statusText}`);
+        }
+
+        // Парсим только если ответ действительно JSON
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
             const result = await response.json();
             console.log('Успешно отправлено:', result);
-
+            alert('Сообщение успешно отправлено!');
         } else {
-            // console.log(result);
-            console.error('Ошибка отправки:', response.statusText);
+            throw new Error('Ответ сервера не в формате JSON');
         }
     } catch (error) {
-        console.error('Ошибка запроса:', error);
+        console.error('Ошибка запроса:', error.message);
+        alert(`Ошибка: ${error.message}`);
     }
 });
