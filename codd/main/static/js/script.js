@@ -25,12 +25,15 @@ function closeModal(modal){
     modal.classList.remove('active');
     modal.classList.add('close');
 }
-loginBtn.addEventListener('click',()=>{
-    body.style.overflow = 'hidden'
+// функция для открытия модалки с регом
+function handleLoginClick(){
+    body.style.overflow = 'hidden';
     document.body.classList.add("no-scroll");
     popupOverlay.classList.remove('close');
-    popupOverlay.classList.add('active')
-})
+    popupOverlay.classList.add('active');
+}
+
+loginBtn.addEventListener('click',handleLoginClick)
 
 function changeFormToReg(form){
     form.innerHTML = `
@@ -144,7 +147,7 @@ function postData(form1) {
         .then(data => {
             console.log(data);
             // Сохранение данных в localStorage
-            localStorage.setItem('user', JSON.stringify(data));
+            // localStorage.setItem('user', JSON.stringify(data));
         })
         .catch(error => {
             console.error('Ошибка:', error);
@@ -153,12 +156,17 @@ function postData(form1) {
         form1.reset();
     });
 }
-const userData = JSON.parse(localStorage.getItem('user'));
+const userData = JSON.parse(localStorage.getItem('user')),
+    name = document.querySelector('.header__login__name'),
+    lk_link = document.querySelector('#lk_link'),
+    points = document.querySelector('.lk__points__amount');
     if(userData){
-        console.log('asda');
-        console.log(userData);
+    name.innerHTML = userData.username;
+    lk_link.href = 'lk/'
+    loginBtn.removeEventListener('click',handleLoginClick);
+    points.innerHTML = userData.points
     }else{
-        console.log('нету тут нихуя')
+        console.log('нету тут ybxtu')
     }
 
   
