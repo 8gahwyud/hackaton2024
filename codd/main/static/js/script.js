@@ -187,8 +187,8 @@ async function loadData() {
 userFormsSwitcher();
 eye();
 postData(form);
-openBackendPage();
-loadData();
+// openBackendPage();
+// loadData();
 });
 
 
