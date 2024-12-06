@@ -8,12 +8,14 @@ import json
 @csrf_exempt
 def MainPage(request):
     return render(request, 'mainpage.html')
-@csrf_exempt
 def fvpPage(request):
     return render(request, 'favPath.html')
-
+@csrf_exempt
 def operform(request):
-    return render(request,'operform.html')
+    if(request.method == 'GET'):
+        return render(request,'operform.html')
+    if(request.method == 'POST'):
+        pass
 
 def lk(request):
     return render(request, 'lk.html')
