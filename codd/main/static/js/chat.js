@@ -21,7 +21,7 @@ fetch('', {
 })
 //
 .then(data => {
-  console.log(data['AdminssMessage'][0]);
+  console.log(data);
   let block = cont.appendChild(document.createElement('div'))
   block.classList.add('chat__skin__right__mess__forms__user');
   let message = data['AdminssMessage'][0].messageText; 

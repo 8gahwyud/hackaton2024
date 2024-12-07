@@ -70,30 +70,25 @@ def chatpage(request):
         userid = body['userid']
         messagesFromUser= Supportchatlogging.objects.all().filter(usersenderid=userid, adminreplyid=None)
         repliedMessages= Supportchatlogging.objects.all().filter(usersenderid=userid, adminreplyid__isnull=False)
-        i = 0
-        toReply = {}
+        for itrm in messagesFromUser:
+            print(itrm.messageid)
+        toReply = dict({'UsersMessage':{}, 'AdminssMessage':{}})
         for item in messagesFromUser:
-            toReply['UsersMessage'] = {
-                f'{i}':{
+            toReply['UsersMessage'][item.messageid] = {
                     'messId':item.messageid,
                     'UserID':userid,
                     'messageText':item.messagetext,
                     'messageDateTime':item.messagedatetime
-                }
             }
-            i+=1
-        i = 0
         for item in repliedMessages:
-            toReply['AdminssMessage'] = {
-                f'{i}':{
+            toReply['AdminssMessage'][item.messageid] = {
                     'messId':item.messageid,
                     'userId':userid,
                     'adminReplyId':item.adminreplyid.adminid,
                     'messageText':item.messagetext,
                     'messageDateTime':item.messagedatetime
-                }
             }
-            i+=1
+        print(toReply)
         return JsonResponse(toReply)
     elif(request.method == 'POST' and json.loads(request.body)['type'] == 'addMessageToDB'):
         body = json.loads(request.body)
