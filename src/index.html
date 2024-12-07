@@ -7,38 +7,32 @@
     <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/blocks/style.min.css">
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=2f456ed7-0aa0-4a29-b358-3a47c590586f&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
     <div class="container">
-        <section class="pickPath">
-            <div class="pickPath__topwrapper">
-                <h2 class="pickPath__header">оптимальный маршрут</h2>
-                <div class="pickPath__close">
-                    <a href="#">
-                        <img src="icons/return.png" alt="">
-                    </a>
-                </div>
+        <div class="header">
+            <img class="header__logo" src="icons/logotype1.png" alt="">
+        </div>  
+        <div class="main">
+            <div class="main__map">
+                <img class="main__map__img" src="img/map.png" alt="">
+                <a class="main__map__btn" href="#">открыть карту</a>
             </div>
-            <div id="map" class="pickPath__map">
-                <div class="pickPath__map__footer">
-                    <div class="pickPath__map__imgwrapper">
-                        <img src="icons/car.png" alt="">
-                        <span class="pickPath__map__imgwrapper__mincount">0</span> мин
-                    </div>
-                    <div class="pickPath__map__footer__workload">
-                        уровень <br> загруженности: <span class="pickPath__map__footer__workload__count">0</span>
-                    </div>
-                    <form id="form" class="pickPath__map__footer__form" action="#" >
-                        <input type="text" id="namePath" name="pathName" class="login-form__input pickPath__map__footer__input " placeholder="введите название маршрута">
-                        <button class="pickPath__map__footer__favoritebtn"  type="submit">добавить в избранное</button>
-                       
-                    </form>
-                </div>
-            </div>
-
+        </div>
+        <section class="btn">
+            <section class="btn__btn01">
+                <a class="btn__btn01__w01" href="#">
+                    <p class="btn__btn01__w01__text">Посмотреть проишествия</p>
+                    <img class="btn__btn01__w01__arrow" src="icons/arrow.png" alt="">
+                </a>
+            </section>
+            <section class="btn__btn02">
+                <a class="btn__btn01__w01" href="#">
+                    <p class="btn__btn01__w01__text">Посмотреть обращения</p>
+                    <img  class="btn__btn01__w01__arrow" src="icons/arrow.png" alt="">
+                </a>
+            </section>
         </section>
     </div>
-    <script src="js/script1.js"></script>
+
 </body>
-</html>
