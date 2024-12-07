@@ -24,24 +24,85 @@ document.querySelectorAll('.favorite__menu__header').forEach(function(header) {
         console.log('нету тут нихуя')
     }
 
-    async function getData() {
-      const url = '';
-      const req = ({'userid':storedData.userid})
-      try {
-        const response = await fetch(url,{
-          method: "POST",
-          body: req,
-          headers: {
-            "wanttoget": "path",
-          },
-        });
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-        const json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.error(error.message);
-      }
-    } 
-getData()
+//     async function getData() {
+//       const url = '';
+//       const data = JSON.parse(localStorage.getItem('user'));
+//       const req = ({'userid':data.userid})
+//       console.log(req)
+
+//       try {
+//         const response = await fetch(url,{
+//           method: "POST",
+//           body: req,
+          
+//         });
+//         if (!response.ok) {
+//           throw new Error(`Response status: ${response.status}`);
+//         }
+//         const json = await response.json();
+//         console.log(json);
+//       } catch (error) {
+//         console.error(error.message);
+//       }
+//     } 
+// getData()
+
+
+
+
+
+
+// const localdata =  JSON.parse(localStorage.getItem('user'))
+// const data = ({'userid': localdata.userid}) 
+// fetch('', {
+//   method: "POST",
+//   body: JSON.stringify(data),
+//   headers: {
+//       "Content-Type": "application/json"
+//   }
+// })
+// .then((response) => {
+//   return response.json();
+// })
+// .then(data => {
+//   console.log(data);
+// })
+// .catch(error => {
+//   console.error('Ошибка:', error);
+// });
+
+
+
+
+
+
+
+
+// try {
+  // console.log(data)
+  // const response = fetch('', { 
+  //     method: 'POST', 
+  //     headers: {
+  //         'Content-Type': 'application/json',
+  //     },
+  //     body: data,
+  // });
+
+  // // Проверяем статус ответа
+  // if (!response.ok) {
+  //     throw new Error(`Ошибка сервера: ${response.status} ${response.statusText}`);
+  // }
+
+  // Парсим только если ответ действительно JSON
+  // const contentType = response.headers.get('content-type');
+  // if (contentType && contentType.includes('application/json')) {
+  //     const result = await response.json();
+  //     console.log(data)
+  //     console.log('Успешно отправлено:', result);
+  // } else {
+  //     throw new Error('Ответ сервера не в формате JSON');
+  // }
+// } catch (error) {
+//   console.error('Ошибка запроса:', error.message);
+//   alert(`Ошибка: ${error.message}`);
+// }

@@ -8,29 +8,37 @@ import json
 @csrf_exempt
 def MainPage(request):
     return render(request, 'mainpage.html')
+@csrf_exempt
 def fvpPage(request):
-    return render(request, 'favPath.html')
+    if(request.method == 'GET'):
+        return render(request, 'favPath.html')
+    if(request.method == 'POST'):
+        data = json.loads(request.body)['userid']
+        dataforresp = {}
+        savedpath = Saveduserpath.objects.all().filter(userid=Users.objects.get(userid=data))
+        print(savedpath.query)
+        i = 0
+        for item in savedpath:
+            dataforresp[f'{i}'] = {
+                'pathid':item.pathid,
+                'userid':data,
+                'startPoint':item.startpoint,
+                'endPoint':item.endpoint,
+                'pathName':item.pathname,
+                'notify':item.notify
+            }
+            i+=1
+        print(dataforresp)
+        return JsonResponse(dataforresp)
+            
+    return JsonResponse({'lol':True})
 @csrf_exempt
 def operform(request):
     if(request.method == 'GET'):
         return render(request,'operform.html')
-    elif(request.method == 'POST' and request.header['wanttoget'] == 'path'):
-        id = json.loads(request.body)['userid']
-        paths = Saveduserpath.objects.all().filter(userid=Users.objects.get(userid=id))
-        pathJson = []
-        for path in paths:
-            pathJson.append({'pathid':path.pathid,
-                            'userid':path.userid,
-                            'startPoint':path.startpoint,
-                            'endPoint':path.endpoint,
-                            'pathName':path.pathname,
-                            'notify':path.notify})
-        return JsonResponse(pathJson)
-
-
+    
     if(request.method == 'POST'):
         body = json.loads(request.body)
-        print(body)
         descr = body['descr']
         adress = body['descrq']
         issue = body['issue']
