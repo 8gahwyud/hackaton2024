@@ -14,7 +14,7 @@ def fvpPage(request):
 def operform(request):
     if(request.method == 'GET'):
         return render(request,'operform.html')
-    elif(request.method == 'GET' and request.header['wanttoget'] == 'path'):
+    elif(request.method == 'POST' and request.header['wanttoget'] == 'path'):
         id = json.loads(request.body)['userid']
         paths = Saveduserpath.objects.all().filter(userid=Users.objects.get(userid=id))
         pathJson = []

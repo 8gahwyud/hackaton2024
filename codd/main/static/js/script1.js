@@ -17,9 +17,9 @@ document.querySelectorAll('.favorite__menu__header').forEach(function(header) {
     points = document.querySelector('.lk__points__amount'),
     name_lk = document.querySelector('.lk__fio__obj__name');
   if(storedData){
-    console.log(storedData.username)
-    name_lk.innerHTML = storedData.username;
-    points.innerHTML = storedData.points
+    console.log(storedData)
+    // name_lk.innerHTML = storedData.username;
+    // points.innerHTML = storedData.points
     }else{
         console.log('нету тут нихуя')
     }
@@ -29,8 +29,8 @@ document.querySelectorAll('.favorite__menu__header').forEach(function(header) {
       const req = ({'userid':storedData.userid})
       try {
         const response = await fetch(url,{
-          method: "GET",
-          body: JSON.stringify(req),
+          method: "POST",
+          body: req,
           headers: {
             "wanttoget": "path",
           },
@@ -38,11 +38,10 @@ document.querySelectorAll('.favorite__menu__header').forEach(function(header) {
         if (!response.ok) {
           throw new Error(`Response status: ${response.status}`);
         }
-    
         const json = await response.json();
         console.log(json);
       } catch (error) {
         console.error(error.message);
       }
     } 
-  
+getData()
