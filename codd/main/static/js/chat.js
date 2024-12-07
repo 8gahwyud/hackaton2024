@@ -1,5 +1,5 @@
 const inputChat = document.querySelector('.chat__skin__right__messageinput__in2__text');
-const form = document.querySelector('.chat__skin__right__messageinput__in2');
+const form = document.querySelector('#form');
 const smbBTN = document.querySelector('.chat__skin__right__messageinput__in2__btn')
 const cont = document.querySelector('.chat__skin__right__mess')
 
@@ -22,14 +22,24 @@ fetch('', {
 
 .then(data => {
   console.log(data);
-  let block = cont.appendChild(document.createElement('div'))
-  block.classList.add('chat__skin__right__mess__forms__user');
-  let message = data; 
-  console.log(message); 
-  block.innerText = message
 
+  for (const key in data){
+    let message = data[key]
+  let block = cont.appendChild(document.createElement('div'))
+
+  if (message.AdminReplyID === 1) {
+    block.classList.add('chat__skin__right__mess__forms__operator');
+    block.innerText=message.MessageText
+  } else {
+    block.classList.add('chat__skin__right__mess__forms__user');
+    block.innerText=message.MessageText
+
+  }
+
+  }
   
-console.log(message)
+  // block.classList.add('chat__skin__right__mess__forms__user');
+
 
 
 
@@ -40,17 +50,23 @@ console.log(message)
 });
 
 
-    smbBTN.addEventListener('click', (e) => {
-        const text = document.querySelector('.chat__skin__right__messageinput__in2__text')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const text = document.querySelector('.chat__skin__right__messageinput__in2__text').innerText
         const userid = userData.userid
+        console.log(text)
+        req={'userid':userid,
+              'type':'addMessageToDB',
+        }
+        const formData = new FormData(form);
+        for (var [key, value] of formData.entries()) {
+          req[key] = value;
+          console.log(value)
+      }
         fetch('', {
 
             method: "POST",
-            body: JSON.stringify({
-              'userid':userid,
-              'type':'addMessageToDB',
-              'message': text
-            }),
+            body: JSON.stringify(req),
             headers: {
                 "Content-Type": "application/json"
             }

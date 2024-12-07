@@ -93,6 +93,7 @@ def chatpage(request):
         return JsonResponse(toRes)
     elif(request.method == 'POST' and json.loads(request.body)['type'] == 'addMessageToDB'):
         body = json.loads(request.body)
+        print(body['message'])
         fromuser=body['userid']
         msg = body['message']
         newmsg = Supportchatlogging.objects.create(usersenderid=Users.objects.get(userid=fromuser), messagetext=f'{msg}', messagedatetime=datetime.now())
