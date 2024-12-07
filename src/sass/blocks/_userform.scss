@@ -1,0 +1,97 @@
+.userForm{
+    margin-top: 30px;
+    padding-bottom: 30px;
+    &__topwrapper{
+        @include top-wrapper();
+    }
+    &__header{
+        @include header();
+    }
+    &__close{
+        @include close();
+    }
+    &__form{
+        position: relative;
+        // display: flex;
+        // justify-content: space-around;
+        &__wrapper{
+            position: absolute;
+            top: 0;
+            right: 100px;
+            width: 600px;
+            margin-right: 50px;
+        }
+        &__descr{
+            resize: none;
+            padding: 10px;
+            font-family: 'SF Pro Display';
+            font-size: 24px;
+            line-height: 25px;
+            width: 400px;
+            height: 300px;
+            &::placeholder{
+                // transform: translateY(-120px);
+                position: absolute;
+                top: 10px;
+                font-family: 'SF Pro Display';
+                font-size: 18px;
+                color: #343434;
+            }
+        }
+        &__adress{
+            // margin-left: 15px;
+            width: 550px;
+            // position: absolute;
+            // top: 0;
+            font-family: 'SF Pro Display';
+            font-size: 20px;
+            color: #343434;
+        }
+        &__radiowwrapper{
+            width: 800px;
+            &__item{
+                margin-top: 15px;
+                // width: 84px;
+                font-family: 'SF Pro Display';
+                font-size: 20px;
+                margin-left: 20px;
+                color:#343434;
+                & input{
+                    // -webkit-appearance: none; /* Убираем стандартное оформление */
+                    // -moz-appearance: none;
+                    // appearance: none;
+                    transform: scale(1.8);
+                    margin-right: 10px;
+
+                }
+            }
+            &__submit{
+                margin: 0;
+                display: block;
+                width: 327px;
+                height: 80px;
+                color: white;
+            }
+            &__secondbtn{
+                background-color: #C2C2C2;
+            }
+        }
+    }
+}
+.report-form {
+    width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Расстояние между элементами */
+  }
+  
+  .report-form__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Расстояние между кружком и текстом */
+  }
+  
+  input[type="radio"] {
+    accent-color: #000; /* Цвет кружка (можно изменить) */
+  }
+  
