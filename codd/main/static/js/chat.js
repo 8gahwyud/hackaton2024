@@ -52,7 +52,7 @@ fetch('', {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        const text = document.querySelector('.chat__skin__right__messageinput__in2__text').innerText
+        // const text = document.querySelector('.chat__skin__right__messageinput__in2__text').innerText
         const userid = userData.userid
         console.log(text)
         req={'userid':userid,
