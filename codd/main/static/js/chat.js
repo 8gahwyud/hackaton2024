@@ -23,9 +23,24 @@ fetch('', {
 .then(data => {
   console.log(data['AdminssMessage'][0]);
   let block = cont.appendChild(document.createElement('div'))
-  block.innerHTML = 'loh'
   block.classList.add('chat__skin__right__mess__forms__user');
-  
+  let message = data['AdminssMessage'][0].messageText; 
+  console.log(message); 
+  block.innerText = message
+
+
+for (let i = 0; i < message.length - 1; i++) {
+  for (let j = 0; j < message.length - 1 - i; j++) {
+      if (new Date(message[j].messageDateTime) > new Date(message[j + 1].messageDateTime)) {
+          const temp = message[j];
+          message[j] = message[j + 1];
+          message[j + 1] = temp;
+        }
+    }
+}
+
+
+
 })
 //
 .catch(error => {
@@ -59,4 +74,3 @@ fetch('', {
             console.error('Ошибка:', error);
           });
     });
-
