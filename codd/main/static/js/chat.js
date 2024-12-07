@@ -19,9 +19,15 @@ fetch('', {
 .then((response) => {
   return response.json();
 })
+//
 .then(data => {
-  console.log(data);
+  console.log(data['AdminssMessage'][0]);
+  let block = cont.appendChild(document.createElement('div'))
+  block.innerHTML = 'loh'
+  block.classList.add('chat__skin__right__mess__forms__user');
+  
 })
+//
 .catch(error => {
   console.error('Ошибка:', error);
 });
@@ -46,9 +52,7 @@ fetch('', {
             return response.json();
           })
           .then(data => {
-            for (const key in data) {
-              console.log(`${key}: ${data[key]}`);
-          }
+
             console.log(data);
           })
           .catch(error => {
