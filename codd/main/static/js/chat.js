@@ -1,6 +1,7 @@
 const inputChat = document.querySelector('.chat__skin__right__messageinput__in2__text');
 const form = document.querySelector('.chat__skin__right__messageinput__in2');
 const smbBTN = document.querySelector('.chat__skin__right__messageinput__in2__btn')
+const cont = document.querySelector('.chat__skin__right__mess')
 
 
 const userData = JSON.parse(localStorage.getItem('user'));
@@ -42,6 +43,7 @@ fetch('', {
             }
           })
           .then((response) => {
+            
             return response.json();
           })
           .then(data => {

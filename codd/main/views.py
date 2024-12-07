@@ -99,8 +99,8 @@ def chatpage(request):
         body = json.loads(request.body)
         fromuser=body['userid']
         msg = body['message']
-        Supportchatlogging.objects.create(usersenderid=Users.objects.get(userid=fromuser), messagetext=f'{msg}', messagedatetime=datetime.now())
-        Supportchatlogging.save()
+        newmsg = Supportchatlogging.objects.create(usersenderid=Users.objects.get(userid=fromuser), messagetext=f'{msg}', messagedatetime=datetime.now())
+        newmsg.save()
         return JsonResponse({'status':'Попал сучёнок'})
 
 
