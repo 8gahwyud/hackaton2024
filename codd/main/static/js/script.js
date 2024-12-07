@@ -121,7 +121,7 @@ function userFormsSwitcher(){
         }
     });
 }
-// localStorage.clear();
+// localStorage.clear();    
 function postData(form1) {
     form1.addEventListener('submit', (e) => {
         e.preventDefault();

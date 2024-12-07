@@ -18,8 +18,8 @@ document.querySelectorAll('.favorite__menu__header').forEach(function(header) {
     name_lk = document.querySelector('.lk__fio__obj__name');
   if(storedData){
     console.log(storedData)
-    // name_lk.innerHTML = storedData.username;
-    // points.innerHTML = storedData.points
+    name_lk.innerHTML = storedData.username;
+    points.innerHTML = storedData.points
     }else{
         console.log('нету тут нихуя')
     }
