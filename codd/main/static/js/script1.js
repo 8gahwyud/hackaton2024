@@ -23,7 +23,10 @@ document.querySelectorAll('.favorite__menu__header').forEach(function(header) {
     }else{
         console.log('нету тут нихуя')
     }
-
+const quitBtn = document.querySelector('.lk__quitbtn');
+quitBtn.addEventListener('click',()=>{
+  localStorage.clear(); 
+})
 //     async function getData() {
 //       const url = '';
 //       const data = JSON.parse(localStorage.getItem('user'));
