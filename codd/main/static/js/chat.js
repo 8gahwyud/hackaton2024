@@ -19,7 +19,7 @@ fetch('', {
 .then((response) => {
   return response.json();
 })
-//
+
 .then(data => {
   console.log(data);
   let block = cont.appendChild(document.createElement('div'))
