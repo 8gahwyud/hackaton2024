@@ -60,6 +60,41 @@ def pickpath(request):
         newpath = Saveduserpath.objects.create(userid=Users.objects.get(userid=1), startpoint=startpoint, endpoint=endpoint, pathname=pathname, notify=0)
         newpath.save()
         return JsonResponse({'status':200})
+@csrf_exempt
+def chatpage(request):
+    if (request.method == 'GET'):
+        return render(request, 'chat.html')
+    elif(request.method == 'POST' and json.loads(request.body)['type'] == 'getMessages'):
+        body = json.loads(request.body)
+        userid = body['userid']
+        messagesFromUser= Supportchatlogging.objects.all().filter(usersenderid=userid, adminreplyid=None)
+        repliedMessages= Supportchatlogging.objects.all().filter(usersenderid=userid, adminreplyid__isnull=False)
+        i = 0
+        toReply = {}
+        for item in messagesFromUser:
+            toReply['UsersMessage'] = {
+                f'{i}':{
+                    'messId':item.messageid,
+                    'UserID':userid,
+                    'messageText':item.messagetext,
+                    'messageDateTime':item.messagedatetime
+                }
+            }
+            i+=1
+        i = 0
+        for item in repliedMessages:
+            toReply['AdminssMessage'] = {
+                f'{i}':{
+                    'messId':item.messageid,
+                    'userId':userid,
+                    'adminReplyId':item.adminreplyid.adminid,
+                    'messageText':item.messagetext,
+                    'messageDateTime':item.messagedatetime
+                }
+            }
+            i+=1
+        return JsonResponse(toReply)
+
 
 def lk(request):
     return render(request, 'lk.html')

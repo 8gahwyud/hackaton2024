@@ -10,5 +10,6 @@ urlpatterns = [
     path('pickpath/', views.pickpath),
     path('admin/', admin.site.urls),
     path('operform/', views.operform),
+    path('chat/', views.chatpage),
     path('auth/', views.auth)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
