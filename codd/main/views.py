@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 from .models import Users, Adminusers, AcceptedRequests, Notifications, Saveduserpath, Supportchatlogging, Userrequests
+from datetime import datetime
 import json
 
 @csrf_exempt
@@ -94,6 +95,13 @@ def chatpage(request):
             }
             i+=1
         return JsonResponse(toReply)
+    elif(request.method == 'POST' and json.loads(request.body)['type'] == 'addMessageToDB'):
+        body = json.loads(request.body)
+        fromuser=body['userid']
+        msg = body['message']
+        Supportchatlogging.objects.create(usersenderid=Users.objects.get(userid=fromuser), messagetext=f'{msg}', messagedatetime=datetime.now())
+        Supportchatlogging.save()
+        return JsonResponse({'status':'Попал сучёнок'})
 
 
 def lk(request):
