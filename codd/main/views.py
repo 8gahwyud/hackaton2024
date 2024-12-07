@@ -80,6 +80,14 @@ def chatpage(request):
                     'MessageText':mes.messagetext,
                     'MessageDateTime':mes.messagedatetime
                 }
+            else:
+                toRes[f'{i}'] = {
+                    'MessageID':mes.messageid, 
+                    'UserSenderID':userid,
+                    'AdminReplyID':None,
+                    'MessageText':mes.messagetext,
+                    'MessageDateTime':mes.messagedatetime
+                }
             i+=1
         print(toRes)
         return JsonResponse(toRes)
