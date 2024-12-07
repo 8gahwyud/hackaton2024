@@ -3,19 +3,11 @@
     font-size: $font-size;
     color: $color;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 98f789e5a62752413cb9faf9c746d318a6b95e9b
 @mixin titleSF($font-family: 'SF Pro Display', $font-size: 36px, $color: white) {
   font-family: $font-family;
   font-size: $font-size;
   color: $color;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 98f789e5a62752413cb9faf9c746d318a6b95e9b
 // Миксин для обертки с flex
 @mixin top-wrapper() {
     display: flex;

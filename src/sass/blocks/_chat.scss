@@ -1,5 +1,21 @@
 .chat{
     position: relative;
+
+&__naming{
+    @include tittle();
+    font-size: 96px;
+    color: #343434;
+    margin-bottom: 52px;
+    &__btn{
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        background-color: transparent;
+        outline: none;
+        border: 0px solid #ccc;
+    }
+}
+
     &__skin{
         position: relative;
         border: 4px solid #C2C2C2;
@@ -69,10 +85,14 @@
         top: 0px;
 
         &__mess{
+            position: relative;
             width: 733px;
             height: 630px;
 
             &__operator{
+                @include titleSF();
+                font-size: 18px;
+                color: #343434;
                 border: 2px solid #C2C2C2;
                 border-radius: 20px 20px 20px 0px;
                 width: 60%;
@@ -81,18 +101,28 @@
                 padding: 15px 10px 0px 10px;
                 margin-left: 10px;
                 margin-bottom:10px;
+                & span{
+                    color: #4D5DAC;
+                }
             }
 
             &__user{
+                @include titleSF();
+                font-size: 18px;
+                color: #343434;
+                position: absolute;
+                right: 0;
                 border: 2px solid #C2C2C2;
                 border-radius: 20px 20px 0px 20px;
-                width: 60%;
+                max-width: 600px;        
                 height: auto;
                 background-color: #85b2dc;
                 padding: 15px 20px 0px 10px;
                 margin-left: 285px;
                 margin-bottom: 10px;
-                text-align: right;
+                & p{
+                    width: 100%;
+                }
             }
 
 
@@ -125,6 +155,7 @@
         height: 75px;
         margin-top: 51px;
         margin-left: 33px;
+        margin-bottom: 30px;
         }
 
         &__messageinput{

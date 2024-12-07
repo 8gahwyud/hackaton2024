@@ -1,0 +1,23 @@
+.header{
+    &__logo{
+        width: 500px;
+        height: 250px;
+    }
+    &__login{
+        position: relative;
+
+        &__text{
+        position: absolute;
+        top: 78px;
+        }
+    }
+
+}
+.main{
+    &__map{
+        &__img{
+            width: 1170px;
+            height: 527px;
+        }
+    }
+}
