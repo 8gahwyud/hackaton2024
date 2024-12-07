@@ -23,4 +23,26 @@ document.querySelectorAll('.favorite__menu__header').forEach(function(header) {
     }else{
         console.log('нету тут нихуя')
     }
+
+    async function getData() {
+      const url = '';
+      const req = ({'userid':storedData.userid})
+      try {
+        const response = await fetch(url,{
+          method: "GET",
+          body: JSON.stringify(req),
+          headers: {
+            "wanttoget": "path",
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+    
+        const json = await response.json();
+        console.log(json);
+      } catch (error) {
+        console.error(error.message);
+      }
+    } 
   
