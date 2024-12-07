@@ -43,10 +43,12 @@ fetch('', {
             }
           })
           .then((response) => {
-            
             return response.json();
           })
           .then(data => {
+            for (const key in data) {
+              console.log(`${key}: ${data[key]}`);
+          }
             console.log(data);
           })
           .catch(error => {
