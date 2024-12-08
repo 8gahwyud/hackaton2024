@@ -68,30 +68,32 @@ def chatpage(request):
     elif(request.method == 'POST' and json.loads(request.body)['type'] == 'getMessages'):
         body = json.loads(request.body)
         userid = body['userid']
-        messagesFromUser= Supportchatlogging.objects.all().filter(usersenderid=userid, adminreplyid=None)
-        repliedMessages= Supportchatlogging.objects.all().filter(usersenderid=userid, adminreplyid__isnull=False)
-        for itrm in messagesFromUser:
-            print(itrm.messageid)
-        toReply = dict({'UsersMessage':{}, 'AdminssMessage':{}})
-        for item in messagesFromUser:
-            toReply['UsersMessage'][item.messageid] = {
-                    'messId':item.messageid,
-                    'UserID':userid,
-                    'messageText':item.messagetext,
-                    'messageDateTime':item.messagedatetime
-            }
-        for item in repliedMessages:
-            toReply['AdminssMessage'][item.messageid] = {
-                    'messId':item.messageid,
-                    'userId':userid,
-                    'adminReplyId':item.adminreplyid.adminid,
-                    'messageText':item.messagetext,
-                    'messageDateTime':item.messagedatetime
-            }
-        print(toReply)
-        return JsonResponse(toReply)
+        messagesForUser= Supportchatlogging.objects.all().filter(usersenderid=Users.objects.get(userid=userid))
+        i = 0
+        toRes = {}
+        for mes in messagesForUser:
+            if(mes.adminreplyid != None):
+                toRes[f'{i}'] = {
+                    'MessageID':mes.messageid, 
+                    'UserSenderID':userid,
+                    'AdminReplyID':mes.adminreplyid.adminid,
+                    'MessageText':mes.messagetext,
+                    'MessageDateTime':mes.messagedatetime
+                }
+            else:
+                toRes[f'{i}'] = {
+                    'MessageID':mes.messageid, 
+                    'UserSenderID':userid,
+                    'AdminReplyID':None,
+                    'MessageText':mes.messagetext,
+                    'MessageDateTime':mes.messagedatetime
+                }
+            i+=1
+        print(toRes)
+        return JsonResponse(toRes)
     elif(request.method == 'POST' and json.loads(request.body)['type'] == 'addMessageToDB'):
         body = json.loads(request.body)
+        print(body['message'])
         fromuser=body['userid']
         msg = body['message']
         newmsg = Supportchatlogging.objects.create(usersenderid=Users.objects.get(userid=fromuser), messagetext=f'{msg}', messagedatetime=datetime.now())

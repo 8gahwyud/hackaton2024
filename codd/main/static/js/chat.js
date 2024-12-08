@@ -1,5 +1,5 @@
 const inputChat = document.querySelector('.chat__skin__right__messageinput__in2__text');
-const form = document.querySelector('.chat__skin__right__messageinput__in2');
+const form = document.querySelector('#form');
 const smbBTN = document.querySelector('.chat__skin__right__messageinput__in2__btn')
 const cont = document.querySelector('.chat__skin__right__mess')
 
@@ -19,28 +19,24 @@ fetch('', {
 .then((response) => {
   return response.json();
 })
-//
+
 .then(data => {
   console.log(data);
+
+  for (const key in data){
+    let message = data[key]
   let block = cont.appendChild(document.createElement('div'))
-  block.classList.add('chat__skin__right__mess__forms__user');
-  let message = data['AdminssMessage'][0].messageText; 
-  console.log(message); 
-  block.innerText = message
 
+  if (message.AdminReplyID === 1) {
+    block.classList.add('chat__skin__right__mess__forms__operator');
+    block.innerText=message.MessageText
+  } else {
+    block.classList.add('chat__skin__right__mess__forms__user');
+    block.innerText=message.MessageText
 
-for (let i = 0; i < message.length - 1; i++) {
-  for (let j = 0; j < message.length - 1 - i; j++) {
-      if (new Date(message[j].messageDateTime) > new Date(message[j + 1].messageDateTime)) {
-          const temp = message[j];
-          message[j] = message[j + 1];
-          message[j + 1] = temp;
-        }
-    }
-}
+  }
 
-
-
+  }
 })
 //
 .catch(error => {
@@ -48,23 +44,31 @@ for (let i = 0; i < message.length - 1; i++) {
 });
 
 
-    smbBTN.addEventListener('click', (e) => {
-        const text = document.querySelector('.chat__skin__right__messageinput__in2__text')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const text = document.querySelector('.chat__skin__right__messageinput__in2__text').innerText
         const userid = userData.userid
+        console.log(text)
+        req={'userid':userid,
+              'type':'addMessageToDB',
+        }
+        const formData = new FormData(form);
+        for (var [key, value] of formData.entries()) {
+          req[key] = value;
+          console.log(value)
+      }
         fetch('', {
 
             method: "POST",
-            body: JSON.stringify({
-              'userid':userid,
-              'type':'addMessageToDB',
-              'message': text
-            }),
+            body: JSON.stringify(req),
             headers: {
                 "Content-Type": "application/json"
             }
           })
           .then((response) => {
+            // location.reload()
             return response.json();
+
           })
           .then(data => {
 
