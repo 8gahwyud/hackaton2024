@@ -163,10 +163,111 @@ const userData = JSON.parse(localStorage.getItem('user')),
     lk_link = document.querySelector('#lk_link'),
     points = document.querySelector('.lk__points__amount');
     if(userData){
+        const allData = document.querySelector('.promo__allwrapper');
+        allData.innerHTML = ''
+        if(userData.adminAuth){
+            document.querySelector('#lk_photo').src = 'static/icons/operator.png'
+            allData.innerHTML = `
+        <section class="oper">
+            <div class="oper__wrapper">
+                <div class="oper__tittle__wrapper">
+                    <img src="static/img/map.png" alt="">
+                    <button class="oper__openmapbtn"><a href="#">открыть карту</a></button>
+                </div>
+            </div>
+        </section>
+        <section class="oper__actions">
+            <div class="oper__actions__wrapper">
+                <div class="oper__actions__btn oper__actions__btn__photo">
+                    <a href="#">
+                        <p>посмотреть <br> происшествия</p>
+                        <div class="arrow"></div>
+                    </a>
+                </div>
+                <div class="oper__actions__btn oper__actions__btn__photo">
+                    <a href="#">
+                        <p>посмотреть обращения</p>
+                        <div class="arrow"></div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="oper__event">
+                <h2 class="oper__event__header">ОЖИДАЕМЫЕ события в городе</h2>
+                <div class="oper__event__wrapper">
+                    <div class="oper__event__obj">
+                        <span class="oper__event__obj__adress">Стадион ФК Краснодар</span>
+                        <span class="oper__event__obj__possibleproblem">Возможна пробка по ул. Красная</span>
+                        <div class="oper__event__bottomwrapper">
+                            <div class="oper__event__bottomwrapper__textwrap">
+                                <span class="oper__event__obj__name">Футбольный матч</span>
+                                <span class="oper__event__obj__time">Вс, 08.12 21:30</span>
+                            </div>
+                            <div class="oper__event__obj__waiting_workload">ОЖИДАЕМАЯ <br> ЗАГРУЖЕННОСТЬ <span>9</span></div>
+                        </div>
+                    </div>
+                    <div class="oper__event__obj">
+                        <span class="oper__event__obj__adress">Кроп Арена</span>
+                        <span class="oper__event__obj__possibleproblem">Возможна пробка по ул. Северная</span>
+                        <div class="oper__event__bottomwrapper">
+                            <div class="oper__event__bottomwrapper__textwrap">
+                                <span class="oper__event__obj__name">Концерт Saluki</span>
+                                <span class="oper__event__obj__time">Сб, 07.12 20:00</span>
+                            </div>
+                            <div class="oper__event__obj__waiting_workload">ОЖИДАЕМАЯ <br> ЗАГРУЖЕННОСТЬ <span>6</span></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="oper__event__wantmore">увидеть еще</button>
+            </div>
+        </section>
+        `
+        }else if(!userData.adminAuth){
+            allData.innerHTML = `
+            <section class="promo">
+                <div class="promo__wrapper">
+                    <div class="promo__tittle__wrapper">
+                        <h1 class="promo__tittle">Снижайте загруженность дорог и улучшайте <br> логистику региона</h1>
+                    </div>
+                    <div class="promo__descr__wrapper">
+                        <p class="promo__descr">
+                            Город без пробок — одна из самых актуальных и повсеместных проблем городов. 
+                            Пробки ведут к экономическим убыткам, ухудшают экологическую обстановку и 
+                            оказывают негативное влияние на качество жизни горожан, провоцируя стресс.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="actions">
+                <div class="actions__wrapper">
+                    <div class="actions__btn actions__btn__photo">
+                        <a href="fvp/">
+                            <p>смотрите <br> избранные маршруты</p>
+                            <div class="arrow"></div>
+                        </a>
+                    </div>
+                    <div class="actions__btn actions__btn__photo">
+                        <a href="pickpath/">
+                            Выбирайтe <br> оптимальный маршрут
+                            <div class="arrow"></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="actions__btn actions__btn__send">
+                    <a href="operform/">
+                        <div class="actions__btn__tittle">сообщайте о происшествиях</div>
+                        <div class="actions__btn__descr">Оператор быстро и эффективно решит возникшую проблему</div>
+                        <div class="arrow"></div>
+                    </a>
+                </div>
+            </section>
+            `
+        }
     name.innerHTML = userData.username;
     lk_link.href = 'lk/'
     loginBtn.removeEventListener('click',handleLoginClick);
-    points.innerHTML = userData.points
+    // points.innerHTML = userData.points
     }else{
         console.log('нету тут ybxtu')
     }

@@ -58,7 +58,7 @@ def pickpath(request):
             pathname = body['pathName']
         except:
             return JsonResponse({'error': 'cant add to db'})
-        newpath = Saveduserpath.objects.create(userid=Users.objects.get(userid=1), startpoint=startpoint, endpoint=endpoint, pathname=pathname, notify=0)
+        newpath = Saveduserpath.objects.create(userid=Users.objects.get(userid=4), startpoint=startpoint, endpoint=endpoint, pathname=pathname, notify=0)
         newpath.save()
         return JsonResponse({'status':200})
 @csrf_exempt
@@ -120,7 +120,7 @@ def auth(request):
                 return JsonResponse({'error': "Пользователь не зарегестрирован"})
         except ObjectDoesNotExist:
             print("Объект не сушествует")
-        return JsonResponse({'userid': user.userid,'username': user.username, 'login': user.login, 'password': user.passwd, 'points': user.points})
+        return JsonResponse({'userid': user.userid,'username': user.username, 'login': user.login, 'password': user.passwd, 'points': user.points, 'adminAuth':False})
     if (_type == 'регистрация'):
         email = json.loads(request.body)['email']
         password = json.loads(request.body)['password']
