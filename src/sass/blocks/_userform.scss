@@ -28,7 +28,7 @@
             font-size: 24px;
             line-height: 25px;
             width: 400px;
-            height: 300px;
+            height: 400px;
             &::placeholder{
                 // transform: translateY(-120px);
                 position: absolute;
@@ -73,7 +73,15 @@
                 color: white;
             }
             &__secondbtn{
+                margin-top: 30px;
                 background-color: #C2C2C2;
+                width: 327px;
+                height: 80px;
+                & a{
+                    color:white;
+                    display: block;
+                    width: 100%;
+                }
             }
         }
     }

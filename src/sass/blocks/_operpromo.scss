@@ -1,0 +1,124 @@
+.oper{
+    margin-top: 25px;
+    &__wrapper{
+        padding: 30px;
+        min-height: 500px;
+        border-radius: 8px;
+        // background: rgb(77, 93, 172);
+        // background: url('../../img/mask1.png') no-repeat center/100% 100%;
+        // background-size: 100% 100%;
+        & img{
+            width: 100%;
+        }
+    }
+    &__openmapbtn{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 350px;
+        height: 80px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #343434;
+        & a{
+            color:white;
+            @include tittle($font-family: 'mediummedium', $font-size: 20px);
+            text-decoration: none;
+
+        }
+    }
+    &__tittle{
+        @include tittle();
+        &__wrapper{
+            position: relative;
+            width: 100%;
+        }
+    }
+    &__descr{
+        font-size: 20px;
+        color: white;
+        font-family: 'SF Pro Display';
+        &__wrapper{
+            margin-top: 13px;
+            width: 600px;
+        }
+    }
+    &__event{
+        margin-top: 20px;
+        &__header{
+            @include tittle($font-family: 'mediummedium', $font-size: 32px);
+            color: #4D5DAC;
+        }
+        &__wrapper{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+       &__obj{
+        display: flex;
+        flex-direction: column;
+        width: 430px;
+        padding-right: 20px;
+        border-right: 2px solid #C2C2C2;
+        &__adress{
+            font-family: 'SF Pro Display';
+            color: #343434;
+            font-size: 36px;
+        }
+        &__possibleproblem{
+            font-family: 'SF Pro Display';
+            color: #929292;
+            font-size: 22px;
+        }
+        &__waiting_workload{
+            width: 180px;
+            height: 80px;
+            background-color: #343434;
+            border-radius: 9px;
+            color: white;
+            padding: 10px;
+            @include tittle($font-family: 'mediummedium', $font-size: 11px);
+            & span{
+                display: block;
+                text-align: right;
+                @include tittle($font-family: 'mediummedium', $font-size: 16px);
+            }
+        }
+        &__name{
+            font-family: 'SF Pro Display';
+            color: #929292;
+            font-size: 22px;
+        }
+        &__time{
+            font-family: 'SF Pro Display';
+            color: #929292;
+            font-size: 22px;
+        }
+       }
+       &__bottomwrapper{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &__textwrap{
+            display: flex;
+            flex-direction: column;
+        }
+       }
+       &__wantmore{
+        width: 250px;
+        height: 80px;   
+        border-radius: 10px;
+        @include tittle($font-family: 'mediummedium', $font-size: 16px);
+        background-color: #4D5DAC;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 20px;
+        border: none;
+       }
+    }
+}

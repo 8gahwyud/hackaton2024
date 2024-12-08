@@ -108,4 +108,16 @@
             }
         }
     }
+    &__quitbtn{
+        cursor: pointer;
+        width: 150px;
+        margin-right: 0;
+        text-align: center;
+        padding: 12px;
+        & a{
+            text-decoration: none;
+            outline: none;
+            color: #343434;
+        }
+    }
 }

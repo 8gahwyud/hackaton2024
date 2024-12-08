@@ -10,29 +10,45 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <img class="header__logo" src="icons/logotype1.png" alt="">
-        </div>  
-        <div class="main">
-            <div class="main__map">
-                <img class="main__map__img" src="img/map.png" alt="">
-                <a class="main__map__btn" href="#">открыть карту</a>
+        <section class="incident">
+            <div class="incident__topwrapper">
+                <h2 class="incident__header">происшествия в <br> городе</h2>
+                <div class="incident__close">
+                    <a href="#">
+                        <img src="icons/return.png" alt="">
+                    </a>
+                </div>
+            </div>
+        <div class="incident__count">всего <span>2</span></div>
+        <div class="incident__wrapper">
+            <div class="incident__obj">
+                <div class="incident__obj__top">
+                    <div class="incident__obj__top__map">
+                        <img src="img/map2.png" alt="">
+                        <div class="incident__obj__top__map__openmap">открыть карту</div>
+                        <div class="incident__obj__top__map__openmap incident__obj__top__map__workload">загруженность <span>7</span></div>
+                    </div>
+                    <div class="incident__obj__top__descr">
+                        <span class="incident__obj__top__descr__adress">АДРЕС</span>
+                        <span class="incident__obj__top__descr__curentadress">Пересечение ул. Северная и ул. Тургенева</span>
+                        <button class="incident__obj__top__descr__wathcam">Посмотреть камеру</button>
+                        <button class="incident__obj__top__descr__wathcam">Обращение</button>
+                    </div>
+                </div>
+                <div class="incident__obj__midle">
+                    <div class="incident__obj__midle__recomend">РЕКОМЕНДАЦИИ</div>
+                    <div class="incident__obj__midle__descr">
+                        Нужно уменьшить длительность 
+                        красного сигнала на 5 сек,  увеличить 
+                        длительность зеленого сигнала на 15 сек
+                    </div>
+                    <button class="incident__obj__midle__recomendbtn">применить</button>
+                </div>
             </div>
         </div>
-        <section class="btn">
-            <section class="btn__btn01">
-                <a class="btn__btn01__w01" href="#">
-                    <p class="btn__btn01__w01__text">Посмотреть проишествия</p>
-                    <img class="btn__btn01__w01__arrow" src="icons/arrow.png" alt="">
-                </a>
-            </section>
-            <section class="btn__btn02">
-                <a class="btn__btn01__w01" href="#">
-                    <p class="btn__btn01__w01__text">Посмотреть обращения</p>
-                    <img  class="btn__btn01__w01__arrow" src="icons/arrow.png" alt="">
-                </a>
-            </section>
+
         </section>
     </div>
-
+    <script src="js/script5.js"></script>
 </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/blocks/style.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a class="header__logo"href="#">
+                <img class="header__logo__img" src="icons/logotype1.png" alt="logotype">
+            </a>
+            <div class="header__login">
+                <img src="icons/avatar.png" alt="avatar">
+                <div class="header__login__name">Вход</div>
+            </div>
+            <div class="popup__overlay close">
+                <div class="popup">
+                    <div class="popup__close"></div>
+                    <a class="header__logo"href="#">
+                        <img class="header__logo__img" src="icons/logotype1.png" alt="logotype">
+                    </a>
+                    <div class="popup__btnsWrapper">
+                        <button id="userbtn" class="popup__btns popup__btns__userbtn popup__btns__active">пользователь</button>
+                        <button id="operbtn" class="popup__btns popup__btns__operbtn">оператор</button>
+                    </div>
+                    <div class="login-form">
+                        <div class="login-form__title">Вход</div>
+                        <form id="form" action="#">
+                            <input type="email" id="email" name="email" class="login-form__input" placeholder="Почта">
+                            <div class="login-form__password">
+                                <input type="password" id="id_password" name="passwordё" class="login-form__input" placeholder="Введите пароль">
+                                <i class="far fa-eye" id="togglePassword">
+                                    <img src="icons/eye.png" alt="eyebtn">
+                                </i>
+                            </div>
+                            <a href="#" class="login-form__forgot">Забыли пароль?</a>
+                            <button type="submit" class="login-form__button login-form__button--primary">Войти</button>
+                            <button type="button" id='goToReg'class="login-form__button login-form__button--secondary">У меня нет аккаунта</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </header>
+        <section class="oper">
+            <div class="oper__wrapper">
+                <div class="oper__tittle__wrapper">
+                    <img src="img/map.png" alt="">
+                    <button class="oper__openmapbtn"><a href="#">открыть карту</a></button>
+                </div>
+            </div>
+        </section>
+        <section class="oper__actions">
+            <div class="oper__actions__wrapper">
+                <div class="oper__actions__btn oper__actions__btn__photo">
+                    <a href="#">
+                        <p>посмотреть <br> происшествия</p>
+                        <div class="arrow"></div>
+                    </a>
+                </div>
+                <div class="oper__actions__btn oper__actions__btn__photo">
+                    <a href="#">
+                        <p>посмотреть обращения</p>
+                        <div class="arrow"></div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="oper__event">
+                <h2 class="oper__event__header">ОЖИДАЕМЫЕ события в городе</h2>
+                <div class="oper__event__wrapper">
+                    <div class="oper__event__obj">
+                        <span class="oper__event__obj__adress">Стадион ФК Краснодар</span>
+                        <span class="oper__event__obj__possibleproblem">Возможна пробка по ул. Красная</span>
+                        <div class="oper__event__bottomwrapper">
+                            <div class="oper__event__bottomwrapper__textwrap">
+                                <span class="oper__event__obj__name">Футбольный матч</span>
+                                <span class="oper__event__obj__time">Вс, 08.12 21:30</span>
+                            </div>
+                            <div class="oper__event__obj__waiting_workload">ОЖИДАЕМАЯ <br> ЗАГРУЖЕННОСТЬ <span>9</span></div>
+                        </div>
+                    </div>
+                    <div class="oper__event__obj">
+                        <span class="oper__event__obj__adress">Кроп Арена</span>
+                        <span class="oper__event__obj__possibleproblem">Возможна пробка по ул. Северная</span>
+                        <div class="oper__event__bottomwrapper">
+                            <div class="oper__event__bottomwrapper__textwrap">
+                                <span class="oper__event__obj__name">Концерт Saluki</span>
+                                <span class="oper__event__obj__time">Сб, 07.12 20:00</span>
+                            </div>
+                            <div class="oper__event__obj__waiting_workload">ОЖИДАЕМАЯ <br> ЗАГРУЖЕННОСТЬ <span>6</span></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="oper__event__wantmore">увидеть еще</button>
+            </div>
+        </section>
+        
+    </div>
+    
+       
+
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
